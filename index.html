@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jejak Tulis</title>
+<meta name="theme-color" content="#3b78b8">
+<meta name="description" content="Jejak Tulis: inovasi digital menulis perkataan untuk murid disgrafia Tahun 2 (DSKP Bahasa Melayu 3.1.1 i).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐝</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff7e6; --card:#ffffff; --ink:#27323a; --muted:#6b7380; --line:#f6d6e0;
+  --primary:#3b78b8; --primary-dark:#2b5d94; --accent:#ffd966;
+  --pink:#ffe1ea; --pink-d:#e8799b; --blue-soft:#e8f2fc;
+  --good:#2e9e5b; --good-bg:#def5e6; --soft:#ffe1ea;
+  --b:#2a6fdb; --d:#e8730c; --p:#2e9e5b; --q:#8a4fd1;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Andika','Comic Sans MS',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  line-height:1.5; min-height:100vh; min-height:100dvh;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+.app{max-width:760px; margin:0 auto; padding:16px 16px 40px}
+h1{margin:.2em 0 .1em; font-size:clamp(2rem,8vw,3rem); font-weight:800; color:var(--primary-dark); letter-spacing:.01em}
+h2{margin:0 0 .4em; font-size:1.3rem}
+p{margin:.3em 0}
+.card{background:var(--card); border:3px solid var(--line); border-radius:22px; padding:18px; margin-bottom:14px}
+.hero{text-align:center; padding:12px 0 6px}
+.owl{font-size:5rem; line-height:1; display:inline-block; animation:bob 3s ease-in-out infinite}
+svg.owl{width:1.4em; height:1.4em}
+.sub{color:var(--muted); font-size:1.05rem}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.owl{animation:none}.pop{animation:none!important}}
+
+.btn{
+  font:inherit; font-weight:600; font-size:1.05rem; border:0; border-radius:16px;
+  min-height:56px; padding:12px 18px; cursor:pointer; color:var(--ink);
+  background:var(--pink); -webkit-tap-highlight-color:transparent;
+}
+.btn:hover{filter:brightness(.97)}
+.btn:active{transform:scale(.98)}
+.btn:focus-visible,.opt:focus-visible{outline:4px solid #6aa5e0; outline-offset:2px}
+.btn.primary{background:var(--primary); color:#fff}
+.btn.accent{background:var(--accent); color:#4a3600}
+.btn.ghost{background:transparent; border:2px solid var(--line)}
+.btn.big{width:100%; min-height:72px; font-size:1.3rem}
+.btn[aria-pressed="true"]{background:var(--good-bg); border:2px solid var(--good)}
+.stack{display:grid; gap:12px}
+.row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.topbar{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px}
+.topbar .btn{min-height:48px; padding:8px 14px}
+.pill{background:#fff; border:2px solid var(--line); border-radius:999px; padding:6px 14px; font-weight:600; font-size:.95rem}
+
+.settings .row{justify-content:space-between}
+.settings .btn{flex:1 1 220px}
+.hint{color:var(--muted); font-size:.95rem}
+.foot{color:var(--muted); font-size:.85rem; text-align:center; margin-top:18px}
+
+.round-btn{
+  display:flex; align-items:center; gap:14px; text-align:left; width:100%;
+  background:#fff; border:3px solid var(--line); border-radius:20px; padding:16px; cursor:pointer;
+  font:inherit; color:inherit; margin-bottom:12px; min-height:84px;
+}
+.round-btn:hover{border-color:var(--primary)}
+.round-btn .ri{font-size:2.4rem}
+.round-btn b{display:block; font-size:1.25rem}
+.round-btn span.s{color:var(--muted); font-size:.95rem}
+
+.dots{display:flex; gap:6px; justify-content:center; margin:6px 0 14px; flex-wrap:wrap}
+.dot{width:30px; height:30px; border-radius:50%; border:2px solid var(--line); background:#fff; display:flex; align-items:center; justify-content:center; font-size:.95rem}
+.dot.now{border-color:var(--primary); border-width:3px}
+.dot.right{background:#fff0b3; border-color:#f2c94c}
+.dot.wrong{background:var(--blue-soft)}
+
+.q-card{text-align:center}
+.q-visual{font-size:5rem; line-height:1.1; min-height:5rem; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap}
+.q-visual .bigword{font-size:3.2rem; font-weight:800; letter-spacing:.04em}
+.q-visual .blank{display:inline-block; min-width:1.6em; border-bottom:6px solid var(--accent); margin-left:2px; color:transparent}
+.q-prompt{font-size:1.25rem; font-weight:600; margin:.5em 0 .7em}
+.tip{background:var(--blue-soft); border:2px dashed #9cc2e8; border-radius:14px; padding:10px 12px; margin:6px 0 12px; font-size:.95rem; text-align:left}
+.tip .tg{display:grid; grid-template-columns:1fr 1fr; gap:4px 12px}
+.l-b,.l-d,.l-p,.l-q{font-weight:800}
+.l-b{color:var(--b)} .l-d{color:var(--d)} .l-p{color:var(--p)} .l-q{color:var(--q)}
+
+.options{display:grid; gap:12px; margin:10px 0}
+.options.letters{grid-template-columns:1fr 1fr}
+@media (min-width:520px){.options{grid-template-columns:1fr 1fr 1fr}}
+.opt{
+  font:inherit; font-size:2rem; font-weight:600; color:var(--ink);
+  min-height:84px; border-radius:18px; border:3px solid var(--line); background:#fff; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:10px; padding:8px 10px;
+  -webkit-tap-highlight-color:transparent;
+}
+.opt:hover:not(:disabled){border-color:var(--primary)}
+.opt:active:not(:disabled){transform:scale(.97)}
+.opt .oe{font-size:2rem}
+.opt.correct{background:var(--good-bg); border-color:var(--good)}
+.opt.oops{background:var(--soft); border-color:var(--accent)}
+.opt.dim{opacity:.55}
+.opt:disabled{cursor:default}
+.feedback{min-height:3.2em; text-align:center; font-size:1.2rem; font-weight:600; margin:8px 0}
+.feedback .pop{display:inline-block; animation:pop .35s ease-out}
+
+.result{text-align:center}
+.score{font-size:4.2rem; font-weight:800; color:var(--primary-dark); line-height:1.1; margin:6px 0}
+.stars{font-size:2rem; letter-spacing:.1em; margin:6px 0 10px; word-break:break-all}
+.msg{font-size:1.4rem; font-weight:600; margin-bottom:12px}
+
+.trace-head{display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:8px; flex-wrap:wrap}
+.trace-head .emoji{font-size:3.6rem; line-height:1}
+.trace-head .syl{font-size:2.6rem; font-weight:800; letter-spacing:.06em}
+.levels{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:6px 0 4px}
+.levels .btn{min-height:50px; padding:8px 6px; font-size:.95rem}
+.levels .btn.on{background:var(--primary); color:#fff}
+.canvas-wrap{position:relative; border:3px solid var(--line); border-radius:18px; overflow:hidden; background:#fff; margin:10px 0}
+.starlayer{position:absolute; inset:0; pointer-events:none; overflow:hidden}
+.sp{position:absolute; left:50%; top:50%; font-size:2rem; line-height:1; white-space:nowrap; will-change:transform,opacity}
+.tmsg{min-height:2.6em; text-align:center; font-weight:700; font-size:1.1rem; margin:4px 0 2px}
+canvas{display:block; width:100%; touch-action:none; cursor:crosshair; -webkit-user-select:none; user-select:none}
+.trace-actions{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+@media (min-width:560px){.trace-actions{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}}
+.trace-actions .btn{min-height:56px; padding:8px 6px; font-size:.95rem}
+.trace-actions .done{grid-column:1/-1}
+@media (min-width:560px){.trace-actions .done{grid-column:auto}}
+.legend{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; font-size:.85rem; color:var(--muted); margin-top:6px}
+.legend i{display:inline-block; width:14px; height:14px; border-radius:4px; vertical-align:-2px; margin-right:4px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="bee" viewBox="0 0 120 120">
+  <clipPath id="beeBody"><ellipse cx="60" cy="68" rx="40" ry="36"/></clipPath>
+  <ellipse cx="38" cy="36" rx="19" ry="26" transform="rotate(-28 38 36)" fill="#e8f2fc" stroke="#8fb9e3" stroke-width="3"/>
+  <ellipse cx="82" cy="36" rx="19" ry="26" transform="rotate(28 82 36)" fill="#e8f2fc" stroke="#8fb9e3" stroke-width="3"/>
+  <path d="M50 34 Q44 18 38 14 M70 34 Q76 18 82 14" fill="none" stroke="#5a4220" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="37" cy="13" r="5" fill="#ff9fba" stroke="#5a4220" stroke-width="2.5"/>
+  <circle cx="83" cy="13" r="5" fill="#ff9fba" stroke="#5a4220" stroke-width="2.5"/>
+  <ellipse cx="60" cy="68" rx="40" ry="36" fill="#ffd966"/>
+  <g clip-path="url(#beeBody)" fill="#5a4220"><rect x="10" y="87" width="100" height="8"/><rect x="10" y="100" width="100" height="10"/></g>
+  <ellipse cx="60" cy="68" rx="40" ry="36" fill="none" stroke="#5a4220" stroke-width="3.5"/>
+  <circle cx="45" cy="62" r="6.5" fill="#3a2a05"/><circle cx="75" cy="62" r="6.5" fill="#3a2a05"/>
+  <circle cx="47.5" cy="59.5" r="2.4" fill="#fff"/><circle cx="77.5" cy="59.5" r="2.4" fill="#fff"/>
+  <ellipse cx="34" cy="75" rx="7" ry="4.5" fill="#ff9fba" opacity=".85"/>
+  <ellipse cx="86" cy="75" rx="7" ry="4.5" fill="#ff9fba" opacity=".85"/>
+  <path d="M52 74 Q60 83 68 74" fill="none" stroke="#5a4220" stroke-width="3.2" stroke-linecap="round"/>
+</symbol></defs></svg>
+<noscript><p style="padding:20px">Sila hidupkan JavaScript untuk menggunakan Jejak Tulis.</p></noscript>
+<main class="app">
+
+  <!-- MENU -->
+  <section id="screen-menu">
+    <div class="hero">
+      <svg class="owl" viewBox="0 0 120 120" aria-hidden="true"><use href="#bee"/></svg>
+      <h1>Jejak Tulis</h1>
+      <p class="sub">Kenal huruf, eja dan tulis perkataan dengan seronok!</p>
+    </div>
+    <div class="stack" style="margin:16px 0">
+      <button class="btn primary big" data-go="rounds">🎮 Main Kuiz</button>
+      <button class="btn accent big" id="goTrace">✏️ Jejak &amp; Tulis Perkataan</button>
+    </div>
+    <div class="card settings">
+      <h2>Tetapan guru</h2>
+      <div class="row">
+        <button class="btn" id="tglSound" aria-pressed="true">🔊 Bunyi: HIDUP</button>
+        <button class="btn" id="tglMusic" aria-pressed="true">🎵 Muzik jawapan betul: HIDUP</button>
+        <button class="btn" id="tglColor" aria-pressed="true">🎨 Bantuan huruf b d p q: HIDUP</button>
+      </div>
+      <p class="hint" style="margin-top:10px">Bantuan huruf (warna dan petunjuk) boleh dimatikan untuk ujian pasca atau apabila murid sudah mahir.</p>
+    </div>
+    <p class="foot">Inovasi digital menulis untuk murid disgrafia · Bahasa Melayu Tahun 2<br>SK 3.1 Asas Menulis · SP 3.1.1 (i) Menulis secara mekanis: perkataan<br>Tiada data murid disimpan dalam aplikasi ini.</p>
+  </section>
+
+  <!-- PILIH PUSINGAN -->
+  <section id="screen-rounds" hidden>
+    <div class="topbar"><button class="btn ghost" data-go="menu">⬅ Menu</button><div class="pill">Pilih pusingan</div></div>
+    <div id="roundList"></div>
+    <p class="hint">Setiap pusingan ada 8 soalan. Tiada had masa, jawab ikut rentak sendiri.</p>
+  </section>
+
+  <!-- KUIZ -->
+  <section id="screen-quiz" hidden>
+    <div class="topbar"><button class="btn ghost" data-go="rounds">⬅ Keluar</button><div id="roundTitle" class="pill"></div></div>
+    <div id="dots" class="dots" aria-label="Kemajuan soalan"></div>
+    <div class="card q-card">
+      <div id="qVisual" class="q-visual"></div>
+      <p id="qPrompt" class="q-prompt"></p>
+      <div id="qTip" class="tip" hidden></div>
+      <button id="qSpeak" class="btn">🔊 Dengar</button>
+    </div>
+    <div id="options" class="options"></div>
+    <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+    <button id="nextBtn" class="btn primary big" hidden>Seterusnya ➡</button>
+  </section>
+
+  <!-- KEPUTUSAN -->
+  <section id="screen-result" hidden>
+    <div class="card result">
+      <svg class="owl" viewBox="0 0 120 120" aria-hidden="true" style="font-size:3.6rem"><use href="#bee"/></svg>
+      <p class="sub">Kamu betul</p>
+      <div id="score" class="score"></div>
+      <div id="stars" class="stars" aria-hidden="true"></div>
+      <div id="resMsg" class="msg"></div>
+      <p class="hint">Guru: tangkap skrin ini sebagai rekod markah.</p>
+    </div>
+    <div class="stack" id="resBtns"></div>
+  </section>
+
+  <!-- JEJAK -->
+  <section id="screen-trace" hidden>
+    <div class="topbar"><button class="btn ghost" data-go="menu">⬅ Menu</button><div id="traceCount" class="pill"></div></div>
+    <div class="card">
+      <div id="traceMain">
+        <div class="trace-head"><span id="tEmoji" class="emoji"></span><div id="tSyl" class="syl"></div></div>
+        <div class="levels">
+          <button class="btn on" data-level="1">1 · Anak panah</button>
+          <button class="btn" data-level="2">2 · Jejak tulisan</button>
+          <button class="btn" data-level="3">3 · Tulis sendiri</button>
+        </div>
+        <p id="levelHelp" class="hint" style="text-align:center"></p>
+        <div class="canvas-wrap"><canvas id="pad" aria-label="Ruang menulis"></canvas><div id="starLayer" class="starlayer" aria-hidden="true"></div></div>
+        <div id="traceMsg" class="tmsg" role="status" aria-live="polite"></div>
+        <div class="legend">
+          <span><i style="background:#e8f2fc;border:1px solid #a9c9ea"></i>atas (b, d, k, t)</span>
+          <span><i style="background:#fff3c2;border:1px solid #e6cf6e"></i>tengah</span>
+          <span><i style="background:#ffe9f0;border:1px solid #f3bccd"></i>bawah (p, q)</span>
+        </div>
+        <div class="trace-actions" style="margin-top:12px">
+          <button class="btn" id="tSpeak">🔊 Dengar</button>
+          <button class="btn" id="tUndo">↩ Undur</button>
+          <button class="btn" id="tClear">🧽 Padam</button>
+          <button class="btn" id="tPeek" hidden>👀 Tunjuk</button>
+          <button class="btn accent" id="tOk3" hidden>⭐ Cikgu: Betul</button>
+          <button class="btn" id="tSkip" hidden>⏭ Langkau</button>
+          <button class="btn primary done" id="tDone">✅ Siap</button>
+        </div>
+      </div>
+      <div id="traceDone" class="result" hidden>
+        <div class="owl" aria-hidden="true" style="font-size:3.6rem">🎉</div>
+        <div class="msg">Hebat! Semua perkataan sudah ditulis.</div>
+        <div id="traceDoneStars" class="score" style="font-size:2.6rem"></div>
+        <p class="hint">Guru: tangkap skrin ini sebagai rekod.</p>
+        <div class="stack">
+          <button class="btn primary big" id="tAgain">🔁 Tulis lagi</button>
+          <button class="btn big" data-go="menu">🏠 Menu</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- Pembantu ---------- */
+const $  = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const pick = a => a[Math.floor(Math.random()*a.length)];
+
+/* ---------- Data ---------- */
+const EMOJI = {bola:'⚽',dadu:'🎲',pasu:'🏺',baju:'👕',pipi:'😊',bata:'🧱',kuda:'🐴',buku:'📖',topi:'🧢',sapu:'🧹',kopi:'☕'};
+const ALL_WORDS = Object.keys(EMOJI);
+const LCOL = {b:'#2a6fdb', d:'#e8730c', p:'#2e9e5b', q:'#8a4fd1'};
+const LETTERS = ['b','d','p','q'];
+
+const first = word => ({kind:'first', word, ans:word[0], wrong:LETTERS.filter(l => l !== word[0])});
+const spell = (word, wrong) => ({kind:'spell', word, ans:word, wrong});
+const fill  = (word, wrong) => ({kind:'fill', word, ans:word.slice(2), wrong});
+const start = (letter, ans, wrong) => ({kind:'start', letter, ans, wrong});
+
+const ROUNDS = [
+  { title:'Pusingan 1', sub:'Huruf pertama dan ejaan', icon:'🔤',
+    words:['bola','dadu','pasu','baju'],
+    qs:[ first('bola'), first('dadu'), first('pasu'), first('baju'), first('pipi'), first('bata'),
+         spell('bola',['dola','pola']), spell('dadu',['badu','padu']) ] },
+  { title:'Pusingan 2', sub:'Pilih ejaan dan lengkapkan perkataan', icon:'✏️',
+    words:['kuda','buku','topi','sapu'],
+    qs:[ spell('baju',['daju','paju']), spell('pasu',['basu','dasu']), spell('kuda',['kuba','kupa']),
+         spell('buku',['dudu','pupu']), spell('topi',['tobi','dopi']), spell('sapu',['sabu','sadu']),
+         fill('baju',['du','pu']), fill('bola',['da','pa']) ] },
+  { title:'Pusingan 3', sub:'Lengkapkan dan huruf permulaan', icon:'⭐',
+    words:['baju','kopi','pasu','pipi'],
+    qs:[ fill('kuda',['ba','pa']), fill('baju',['bu','pu']), fill('kopi',['bi','di']), fill('pasu',['bu','du']),
+         start('d','dadu',['bola','pasu']), start('b','baju',['dadu','pasu']),
+         start('p','pasu',['bola','dadu']), start('k','kuda',['baju','topi']) ] }
+];
+
+/* ---------- Keadaan ---------- */
+const state = {
+  sound:true, music:true, color:true,
+  ri:0, round:null, qi:0, score:0, results:[], locked:false,
+  trace:{ words:[], i:0, level:1, showRef:false, stars:0, right:0, busy:false }
+};
+
+/* ---------- Bunyi ---------- */
+let actx = null;
+function ac(){
+  if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
+  if(actx && actx.state === 'suspended'){ try{ actx.resume(); }catch(e){} }
+  return actx;
+}
+function tone(seq, type, vol){
+  if(!state.sound) return;
+  const c = ac(); if(!c) return;
+  let t = c.currentTime;
+  seq.forEach(([f,d]) => {
+    const o = c.createOscillator(), g = c.createGain();
+    o.type = type||'sine'; o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(vol||0.12, t+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t+d);
+    o.connect(g); g.connect(c.destination);
+    o.start(t); o.stop(t+d+0.03);
+    t += d*0.85;
+  });
+}
+/* Muzik pengukuhan (dijana dengan Web Audio, tiada fail luar) */
+const TUNES = [
+  [[659,.14],[784,.14],[1047,.14],[880,.14],[784,.14],[1047,.5]],
+  [[523,.12],[587,.12],[659,.12],[784,.12],[880,.12],[1047,.5]],
+  [[784,.15],[1047,.15],[784,.15],[1319,.55]],
+  [[523,.14],[784,.14],[659,.14],[1047,.14],[880,.14],[1175,.5]]
+];
+function note(c, f, t, d, type, vol){
+  const o = c.createOscillator(), g = c.createGain();
+  o.type = type; o.frequency.value = f;
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(vol, t+0.015);
+  g.gain.exponentialRampToValueAtTime(0.0001, t+d*2.2);
+  o.connect(g); g.connect(c.destination);
+  o.start(t); o.stop(t+d*2.2+0.05);
+}
+function jingle(big){
+  if(!state.sound) return;
+  if(!state.music){ tone(big ? [[523,.12],[659,.12],[784,.12],[1047,.3]] : [[523,.12],[659,.12],[784,.2]]); return; }
+  const c = ac(); if(!c) return;
+  let t = c.currentTime + 0.03;
+  const phrases = big ? [pick(TUNES), pick(TUNES)] : [pick(TUNES)];
+  phrases.forEach((tune, pi) => {
+    tune.forEach(([f,d], i) => {
+      note(c, f, t, d, 'triangle', 0.13);
+      note(c, f/2, t, d, 'sine', 0.06);
+      if(i === tune.length-1){
+        note(c, f*1.25, t, d, 'triangle', 0.07);
+        note(c, f*1.5, t, d, 'triangle', 0.07);
+      }
+      t += d;
+    });
+    t += 0.12;
+  });
+}
+function speak(text, rate, force){
+  if(!force && !state.sound) return;
+  if(!('speechSynthesis' in window)) return;
+  try{
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ms-MY'; u.rate = rate || 0.8;
+    const vs = window.speechSynthesis.getVoices();
+    const v = vs.find(x => /^ms/i.test(x.lang)) || vs.find(x => /^id/i.test(x.lang));
+    if(v) u.voice = v;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- Warna huruf ---------- */
+function col(str){
+  return Array.from(str).map(ch => (state.color && LCOL[ch]) ? '<span class="l-'+ch+'">'+ch+'</span>' : ch).join('');
+}
+
+/* ---------- Navigasi ---------- */
+function go(name){
+  $$('section[id^="screen-"]').forEach(s => s.hidden = (s.id !== 'screen-'+name));
+  window.scrollTo(0,0);
+  if(name === 'trace') requestAnimationFrame(sizePad);
+  if(name !== 'quiz' && name !== 'trace' && 'speechSynthesis' in window){ try{ window.speechSynthesis.cancel(); }catch(e){} }
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if(b) go(b.dataset.go);
+});
+
+/* ---------- Menu & tetapan ---------- */
+function syncToggles(){
+  const s = $('#tglSound'), c = $('#tglColor'), m = $('#tglMusic');
+  m.setAttribute('aria-pressed', state.music); m.textContent = '🎵 Muzik jawapan betul: ' + (state.music ? 'HIDUP' : 'MATI');
+  s.setAttribute('aria-pressed', state.sound); s.textContent = '🔊 Bunyi: ' + (state.sound ? 'HIDUP' : 'MATI');
+  c.setAttribute('aria-pressed', state.color);  c.textContent = '🎨 Bantuan huruf b d p q: ' + (state.color ? 'HIDUP' : 'MATI');
+}
+$('#tglSound').addEventListener('click', () => { state.sound = !state.sound; syncToggles(); if(state.sound) tone([[523,.12],[659,.12]]); });
+$('#tglMusic').addEventListener('click', () => { state.music = !state.music; syncToggles(); if(state.music) jingle(); });
+$('#tglColor').addEventListener('click', () => { state.color = !state.color; syncToggles(); });
+syncToggles();
+
+function buildRounds(){
+  $('#roundList').innerHTML = ROUNDS.map((r,i) =>
+    '<button class="round-btn" data-round="'+i+'"><span class="ri">'+r.icon+'</span><span><b>'+r.title+'</b><span class="s">'+r.sub+' · '+r.qs.length+' soalan</span></span></button>'
+  ).join('');
+}
+buildRounds();
+$('#roundList').addEventListener('click', e => {
+  const b = e.target.closest('[data-round]'); if(b) startRound(+b.dataset.round);
+});
+
+/* ---------- Kuiz ---------- */
+function startRound(i){
+  ac();
+  state.ri = i; state.round = ROUNDS[i]; state.qi = 0; state.score = 0;
+  state.results = []; state.locked = false;
+  $('#roundTitle').textContent = state.round.title;
+  go('quiz'); renderQuestion();
+}
+
+function renderDots(){
+  const n = state.round.qs.length;
+  let h = '';
+  for(let i=0;i<n;i++){
+    let cls = 'dot', t = '';
+    if(i < state.qi || (i === state.qi && state.locked)){
+      if(state.results[i]){ cls += ' right'; t = '⭐'; } else { cls += ' wrong'; t = '•'; }
+    } else if(i === state.qi){ cls += ' now'; }
+    h += '<span class="'+cls+'">'+t+'</span>';
+  }
+  $('#dots').innerHTML = h;
+}
+
+function tipHTML(){
+  return '<div class="tg">' +
+    '<span><span class="l-b">b</span> batang kiri, perut ke kanan</span>' +
+    '<span><span class="l-d">d</span> perut kiri, batang kanan</span>' +
+    '<span><span class="l-p">p</span> batang turun, perut ke kanan</span>' +
+    '<span><span class="l-q">q</span> batang turun, perut ke kiri</span></div>';
+}
+
+function renderQuestion(){
+  const q = state.round.qs[state.qi];
+  state.locked = false;
+  renderDots();
+  $('#feedback').innerHTML = '';
+  $('#nextBtn').hidden = true;
+
+  const vis = $('#qVisual'), pr = $('#qPrompt'), tip = $('#qTip');
+  tip.hidden = true;
+  let say = '';
+
+  if(q.kind === 'first'){
+    vis.innerHTML = '<span>'+EMOJI[q.word]+'</span><span class="bigword">'+col(q.word)+'</span>';
+    pr.textContent = 'Apakah huruf pertama perkataan ini?';
+    say = 'Apakah huruf pertama perkataan ' + q.word;
+    if(state.color){ tip.innerHTML = tipHTML(); tip.hidden = false; }
+  } else if(q.kind === 'spell'){
+    vis.innerHTML = '<span>'+EMOJI[q.word]+'</span>';
+    pr.textContent = 'Pilih ejaan yang betul.';
+    say = q.word;
+  } else if(q.kind === 'fill'){
+    vis.innerHTML = '<span>'+EMOJI[q.word]+'</span><span class="bigword">'+col(q.word.slice(0,2))+'<span class="blank">__</span></span>';
+    pr.textContent = 'Lengkapkan perkataan ini.';
+    say = q.word;
+  } else {
+    vis.innerHTML = '<span class="bigword" style="font-size:5rem">'+col(q.letter)+'</span>';
+    pr.textContent = 'Perkataan manakah bermula dengan huruf ini?';
+    say = 'Perkataan manakah bermula dengan huruf ' + q.letter;
+    if(state.color && 'bdpq'.indexOf(q.letter) >= 0){ tip.innerHTML = tipHTML(); tip.hidden = false; }
+  }
+  q.say = say;
+
+  const opts = shuffle([q.ans].concat(q.wrong));
+  const box = $('#options');
+  box.className = 'options' + (q.kind === 'first' ? ' letters' : '');
+  box.innerHTML = opts.map(o =>
+    '<button class="opt" data-v="'+o+'">' +
+      ((q.kind === 'start' && EMOJI[o]) ? '<span class="oe">'+EMOJI[o]+'</span>' : '') +
+      '<span class="ot">'+col(o)+'</span></button>'
+  ).join('');
+}
+
+$('#qSpeak').addEventListener('click', () => { const q = state.round.qs[state.qi]; speak(q.say, 0.75, true); });
+
+$('#options').addEventListener('click', e => {
+  const b = e.target.closest('.opt');
+  if(b) answer(b);
+});
+
+function answer(btn){
+  if(state.locked) return;
+  state.locked = true;
+  const q = state.round.qs[state.qi];
+  const ok = btn.dataset.v === q.ans;
+  state.results[state.qi] = ok;
+  if(ok) state.score++;
+
+  $$('.opt').forEach(b => {
+    b.disabled = true;
+    if(b.dataset.v === q.ans) b.classList.add('correct');
+    else if(b === btn) b.classList.add('oops');
+    else b.classList.add('dim');
+  });
+
+  const full = (q.kind === 'fill' || q.kind === 'spell') ? q.word : q.ans;
+  if(ok){
+    $('#feedback').innerHTML = '<span class="pop">' + pick(['🌟 Betul! Hebat!','🎉 Bagus sekali!','👏 Tepat sekali!','⭐ Cantik! Betul!']) + '</span>';
+    jingle();
+  } else {
+    $('#feedback').innerHTML = 'Tidak mengapa, kita belajar! Jawapan betul: <b>' + col(full) + '</b>';
+    tone([[392,.18],[330,.22]], 'sine', 0.08);
+  }
+  const spoken = (q.kind === 'start') ? q.ans : (q.word || q.ans);
+  setTimeout(() => speak(spoken, 0.75), ok ? 1700 : 450);
+
+  renderDots();
+  const last = state.qi === state.round.qs.length - 1;
+  const nb = $('#nextBtn');
+  nb.textContent = last ? 'Lihat skor ⭐' : 'Seterusnya ➡';
+  nb.hidden = false;
+  nb.focus({preventScroll:true});
+  nb.scrollIntoView({block:'nearest', behavior:'smooth'});
+}
+
+$('#nextBtn').addEventListener('click', () => {
+  if(state.qi < state.round.qs.length - 1){ state.qi++; renderQuestion(); window.scrollTo(0,0); }
+  else showResult();
+});
+
+function showResult(){
+  const total = state.round.qs.length, s = state.score;
+  $('#score').textContent = s + ' / ' + total;
+  let st = '';
+  for(let i=0;i<total;i++) st += i < s ? '⭐' : '☆';
+  $('#stars').textContent = st;
+  let m;
+  if(s === total) m = '🏆 Sempurna! Kamu hebat!';
+  else if(s >= total*0.75) m = '🌟 Hebat! Sikit lagi!';
+  else if(s >= total*0.5) m = '👍 Bagus! Teruskan berlatih!';
+  else m = '💪 Jom cuba lagi, kamu boleh!';
+  $('#resMsg').textContent = m;
+
+  let b = '<button class="btn primary big" id="rAgain">🔁 Main lagi pusingan ini</button>';
+  if(state.ri < ROUNDS.length - 1) b += '<button class="btn accent big" id="rNext">➡ Pusingan seterusnya</button>';
+  b += '<button class="btn big" id="rTrace">✏️ Tulis perkataan pusingan ini</button>';
+  b += '<button class="btn big" data-go="menu">🏠 Menu</button>';
+  $('#resBtns').innerHTML = b;
+  $('#rAgain').onclick = () => startRound(state.ri);
+  if($('#rNext')) $('#rNext').onclick = () => startRound(state.ri + 1);
+  $('#rTrace').onclick = () => startTrace(state.round.words);
+
+  go('result');
+  if(s >= total*0.5) jingle(true); else tone([[440,.15],[523,.2]]);
+}
+
+/* ---------- Jejak & tulis ---------- */
+const pad = $('#pad'), ctx = pad.getContext('2d');
+let strokes = [], cur = null;
+const INK = '#1d3557';
+const LEVEL_HELP = {
+  1:'Mula dari titik bernombor, ikut anak panah. Duduk atas garisan merah jambu.',
+  2:'Jejak tulisan kelabu. Ingat arah goresan tadi.',
+  3:'Tulis sendiri di atas garisan merah jambu. Tekan 👀 jika mahu tengok semula.'
+};
+
+function curWord(){ return state.trace.words[state.trace.i] || 'bola'; }
+
+function startTrace(words){
+  ac();
+  state.trace.words = words.slice();
+  state.trace.i = 0; state.trace.level = 1; state.trace.showRef = false;
+  state.trace.stars = 0; state.trace.right = 0; state.trace.busy = false;
+  $('#traceMain').hidden = false; $('#traceDone').hidden = true;
+  go('trace'); loadWord();
+}
+$('#goTrace').addEventListener('click', () => startTrace(ALL_WORDS));
+
+function syncLevels(){
+  $$('.levels .btn').forEach(b => b.classList.toggle('on', +b.dataset.level === state.trace.level));
+  $('#levelHelp').textContent = LEVEL_HELP[state.trace.level];
+  $('#tPeek').hidden = state.trace.level !== 3;
+}
+
+function renderHead(){
+  const w = curWord(), t = state.trace;
+  const syl = w.match(/../g) || [w];
+  $('#tEmoji').textContent = EMOJI[w] || '✏️';
+  const hide = (t.level === 3 && !t.showRef);
+  $('#tSyl').innerHTML = hide ? '? · ?' : syl.map(s => col(s)).join(' · ');
+}
+
+function updateCount(){
+  $('#traceCount').textContent = 'Perkataan ' + (state.trace.i+1) + ' / ' + state.trace.words.length + ' · ⭐ ' + state.trace.stars;
+}
+function resetFeedback(){
+  $('#traceMsg').textContent = ''; $('#tSkip').hidden = true; $('#tOk3').hidden = true; $('#starLayer').innerHTML = '';
+}
+function loadWord(){
+  strokes = []; cur = null; state.trace.showRef = false; state.trace.busy = false;
+  resetFeedback(); updateCount();
+  syncLevels(); renderHead(); sizePad();
+}
+
+function sizePad(){
+  const wrap = pad.parentElement;
+  const W = wrap.clientWidth; if(!W) return;
+  const H = Math.round(Math.min(Math.max(W*0.6, 220), 380));
+  const dpr = window.devicePixelRatio || 1;
+  pad.style.height = H + 'px';
+  pad.width = Math.round(W*dpr); pad.height = Math.round(H*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  pad._W = W; pad._H = H;
+  redraw();
+}
+
+function layout(word){
+  const W = pad._W, H = pad._H;
+  let fs = H*0.6;
+  const fontOf = s => '400 ' + s + 'px Andika, "Comic Sans MS", system-ui, sans-serif';
+  ctx.font = fontOf(fs);
+  const widthOf = () => Array.from(word).reduce((a,ch) => a + ctx.measureText(ch).width, 0);
+  let wd = widthOf();
+  const maxW = W*0.92;
+  if(wd > maxW){ fs *= maxW/wd; ctx.font = fontOf(fs); wd = widthOf(); }
+  const xh   = ctx.measureText('x').actualBoundingBoxAscent || fs*0.5;
+  const asc  = ctx.measureText('l').actualBoundingBoxAscent || fs*0.74;
+  const desc = ctx.measureText('p').actualBoundingBoxDescent || fs*0.22;
+  return { word, fs, wd, x0:(W-wd)/2, base:H*0.68, font:fontOf(fs), xh, asc, desc };
+}
+
+function hline(y, color, w, dash){
+  ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = w; ctx.setLineDash(dash || []);
+  ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(pad._W,y); ctx.stroke(); ctx.restore();
+}
+function drawGuide(L){
+  const W = pad._W, b = L.base, xh = b - L.xh, asc = b - L.asc, dsc = b + L.desc;
+  ctx.fillStyle = '#e8f2fc'; ctx.fillRect(0, asc, W, xh-asc);
+  ctx.fillStyle = '#fff3c2'; ctx.fillRect(0, xh, W, b-xh);
+  ctx.fillStyle = '#ffe9f0'; ctx.fillRect(0, b, W, dsc-b);
+  hline(asc, '#a9c9ea', 1.5);
+  hline(xh, '#6aa5e0', 2, [8,6]);
+  hline(b, '#e8799b', 3);
+  hline(dsc, '#f3bccd', 1.5);
+}
+function drawWord(L, alpha){
+  ctx.save();
+  ctx.font = L.font; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+  let x = L.x0;
+  Array.from(L.word).forEach(ch => {
+    const c = (state.color && LCOL[ch]) ? LCOL[ch] : '#7a868c';
+    ctx.globalAlpha = alpha; ctx.fillStyle = c; ctx.fillText(ch, x, L.base);
+    x += ctx.measureText(ch).width;
+  });
+  ctx.restore();
+}
+
+/* Anak panah arah goresan. u: 0..1 lebar huruf; v: 0 garis dasar, 1 tinggi tengah, 2 atas, -1 bawah */
+function arc(cu, cv, ru, rv, a0, a1, n){
+  n = n || 14; const p = [];
+  for(let i=0;i<=n;i++){ const a = (a0 + (a1-a0)*i/n) * Math.PI/180; p.push([cu + ru*Math.cos(a), cv + rv*Math.sin(a)]); }
+  return p;
+}
+const GLYPHS = {
+  o:[ arc(.5,.5,.5,.5,70,430,18) ],
+  a:[ arc(.45,.5,.45,.5,55,355), [[.95,1],[.95,0]] ],
+  b:[ [[.05,2],[.05,0]], arc(.52,.5,.48,.5,150,-170) ],
+  d:[ arc(.48,.5,.48,.5,40,355), [[.95,2],[.95,0]] ],
+  p:[ [[.05,1],[.05,-1]], arc(.52,.5,.48,.5,150,-170) ],
+  q:[ arc(.48,.5,.48,.5,40,355), [[.95,1],[.95,-1]] ],
+  l:[ [[.5,2],[.5,0]] ],
+  i:[ [[.5,1],[.5,0]], [[.5,1.65]] ],
+  j:[ [[.78,1],[.78,-.5],[.62,-.85],[.3,-1],[.05,-.9]], [[.78,1.65]] ],
+  u:[ [[.06,1],[.06,.4]].concat(arc(.5,.4,.44,.4,180,360,10)).concat([[.94,1]]), [[.94,1],[.94,0]] ],
+  s:[ [[.85,.85],[.6,1],[.3,1],[.1,.8],[.15,.6],[.5,.5],[.85,.4],[.9,.2],[.65,0],[.3,0],[.05,.15]] ],
+  t:[ [[.4,1.55],[.4,.2],[.55,0],[.85,.05]], [[.0,1],[.85,1]] ],
+  k:[ [[.05,2],[.05,0]], [[.9,1],[.05,.4]], [[.3,.65],[.95,0]] ],
+  r:[ [[.1,1],[.1,0]], [[.1,.55],[.3,.95],[.6,1],[.95,.85]] ],
+  n:[ [[.08,1],[.08,0]], [[.08,.6],[.3,.95],[.6,1],[.85,.8],[.92,.5],[.92,0]] ]
+};
+
+function glyphBoxes(L){
+  ctx.save(); ctx.font = L.font; ctx.textAlign = 'left';
+  let x = L.x0; const out = [];
+  Array.from(L.word).forEach(ch => {
+    const m = ctx.measureText(ch);
+    out.push({ ch, l:x - m.actualBoundingBoxLeft, r:x + m.actualBoundingBoxRight });
+    x += m.width;
+  });
+  ctx.restore();
+  return out;
+}
+
+function drawArrowStroke(pts, n, fs){
+  const R = Math.max(10, fs*0.07);
+  ctx.save();
+  ctx.strokeStyle = '#37474f'; ctx.fillStyle = '#37474f';
+  ctx.lineWidth = Math.max(2.5, fs*0.025); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if(pts.length > 1){
+    ctx.globalAlpha = 0.9;
+    ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+    for(let i=1;i<pts.length-1;i++){
+      const mx = (pts[i].x + pts[i+1].x)/2, my = (pts[i].y + pts[i+1].y)/2;
+      ctx.quadraticCurveTo(pts[i].x, pts[i].y, mx, my);
+    }
+    const a = pts[pts.length-2], b = pts[pts.length-1];
+    ctx.lineTo(b.x, b.y); ctx.stroke();
+    const ang = Math.atan2(b.y - a.y, b.x - a.x), sz = Math.max(10, fs*0.07);
+    ctx.beginPath(); ctx.moveTo(b.x, b.y);
+    ctx.lineTo(b.x - sz*Math.cos(ang-0.5), b.y - sz*Math.sin(ang-0.5));
+    ctx.lineTo(b.x - sz*Math.cos(ang+0.5), b.y - sz*Math.sin(ang+0.5));
+    ctx.closePath(); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, R, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.font = '700 ' + Math.round(R*1.2) + 'px Andika, system-ui, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(String(n), pts[0].x, pts[0].y + 1);
+  ctx.restore();
+}
+
+function glyphPaths(L){
+  const th = L.fs*0.09, h = th/2;
+  const y0 = L.base - h, y1 = L.base - L.xh + h, y2 = L.base - L.asc + h, ym = L.base + L.desc - h;
+  const vy = v => v >= 1 ? y1 + (v-1)*(y2-y1) : (v >= 0 ? y0 + v*(y1-y0) : y0 + (-v)*(ym-y0));
+  const out = [];
+  glyphBoxes(L).forEach(bx => {
+    const def = GLYPHS[bx.ch]; if(!def) return;
+    const wdt = Math.max(bx.r - bx.l - th, 1);
+    def.forEach((st, si) => {
+      out.push({ n:si+1, pts: st.map(p => ({ x:bx.l + h + p[0]*wdt, y:vy(p[1]) })) });
+    });
+  });
+  return out;
+}
+function plen(pts){
+  let s = 0;
+  for(let i=1;i<pts.length;i++) s += Math.hypot(pts[i].x-pts[i-1].x, pts[i].y-pts[i-1].y);
+  return s;
+}
+function drawArrows(L){
+  glyphPaths(L).forEach(g => drawArrowStroke(g.pts, g.n, L.fs));
+}
+
+/* ---------- Semakan tulisan (anggaran) ---------- */
+function eachGlyph(x, L, cb){
+  x.font = L.font; x.textAlign = 'left'; x.textBaseline = 'alphabetic';
+  let px = L.x0;
+  Array.from(L.word).forEach(ch => { cb(ch, px); px += x.measureText(ch).width; });
+}
+function rasterMask(W, H, draw){
+  const c = document.createElement('canvas'); c.width = W; c.height = H;
+  const x = c.getContext('2d'); draw(x);
+  const d = x.getImageData(0,0,W,H).data, m = new Uint8Array(W*H);
+  for(let i=0;i<m.length;i++) m[i] = d[i*4+3] > 60 ? 1 : 0;
+  return m;
+}
+function maskBox(m, W, H){
+  let x0=W, y0=H, x1=-1, y1=-1;
+  for(let y=0;y<H;y++) for(let x=0;x<W;x++) if(m[y*W+x]){ if(x<x0)x0=x; if(x>x1)x1=x; if(y<y0)y0=y; if(y>y1)y1=y; }
+  return { l:x0, t:y0, w:Math.max(x1-x0,1), h:Math.max(y1-y0,1) };
+}
+function evaluate(){
+  if(!strokes.length) return { empty:true };
+  const W = Math.round(pad._W), H = Math.round(pad._H);
+  const L = layout(curWord());
+  const fontOk = !document.fonts || !document.fonts.check || document.fonts.check('400 40px Andika');
+
+  const E = glyphPaths(L).reduce((a,g) => a + plen(g.pts), 0);
+  let ink = strokes.map(s => s.map(p => ({ x:p.x*W, y:p.y*H })));
+  const inkLen = ink.reduce((a,s) => a + plen(s), 0);
+  if(inkLen > E*2.7) return { ok:false, why:'banyak' };
+
+  const rRef = L.fs*0.09, rInk = L.fs*0.06;
+  const refFill = x => { x.fillStyle = '#000'; eachGlyph(x, L, (ch,px) => x.fillText(ch, px, L.base)); };
+  const ref  = rasterMask(W, H, refFill);
+  const refD = rasterMask(W, H, x => {
+    x.strokeStyle = '#000'; x.lineWidth = 2*rRef; x.lineJoin = 'round';
+    eachGlyph(x, L, (ch,px) => x.strokeText(ch, px, L.base));
+    refFill(x);
+  });
+
+  const drawInk = (x, lw) => {
+    x.strokeStyle = '#000'; x.fillStyle = '#000'; x.lineWidth = lw; x.lineCap = 'round'; x.lineJoin = 'round';
+    ink.forEach(s => {
+      x.beginPath();
+      if(s.length === 1){ x.arc(s[0].x, s[0].y, lw/2, 0, Math.PI*2); x.fill(); }
+      else { x.moveTo(s[0].x, s[0].y); for(let i=1;i<s.length;i++) x.lineTo(s[i].x, s[i].y); x.stroke(); }
+    });
+  };
+  const inkM  = rasterMask(W, H, x => drawInk(x, 9));
+  const inkD  = rasterMask(W, H, x => drawInk(x, 9 + 2*rInk));
+
+  let refN = 0, refHit = 0, inkN = 0, inkIn = 0;
+  for(let i=0;i<ref.length;i++){
+    if(ref[i]){ refN++; if(inkD[i]) refHit++; }
+    if(inkM[i]){ inkN++; if(refD[i]) inkIn++; }
+  }
+  const cov = refN ? refHit/refN : 0, prec = inkN ? inkIn/inkN : 0;
+  let covT = 0.72, precT = 0.78;
+  if(!fontOk){ covT -= 0.12; precT -= 0.10; }
+  const ok = cov >= covT && prec >= precT;
+  const s = (cov + prec)/2;
+  const stars = s >= 0.9 ? 3 : (s >= 0.82 ? 2 : 1);
+  return { ok, stars, cov, prec, why: ok ? '' : 'hampir' };
+}
+
+/* ---------- Bintang di skrin ---------- */
+function celebrate(n){
+  const layer = $('#starLayer'); layer.innerHTML = '';
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const C = 'translate(-50%,-50%)';
+  const big = document.createElement('div');
+  big.className = 'sp'; big.style.fontSize = '4.2rem'; big.style.transform = C; big.textContent = '⭐'.repeat(n);
+  layer.appendChild(big);
+  big.animate([
+    { transform: C+' scale(.2)', opacity:0 },
+    { transform: C+' scale(1.25)', opacity:1, offset:.4 },
+    { transform: C+' scale(1)', opacity:1, offset:.8 },
+    { transform: C+' scale(1)', opacity:0 }
+  ], { duration: reduce ? 900 : 1800, easing:'ease-out', fill:'forwards' });
+  if(!reduce){
+    const R = Math.max(pad._W||300, 300)*0.45;
+    for(let i=0;i<20;i++){
+      const s = document.createElement('div');
+      s.className = 'sp'; s.textContent = (i % 4 === 0) ? '✨' : '⭐';
+      s.style.fontSize = (1.2 + Math.random()*1.4) + 'rem'; s.style.transform = C;
+      layer.appendChild(s);
+      const a = Math.random()*Math.PI*2, d = R*(0.4 + Math.random()*0.6);
+      s.animate([
+        { transform: C+' scale(.3)', opacity:1 },
+        { transform: 'translate(calc(-50% + '+(Math.cos(a)*d)+'px), calc(-50% + '+(Math.sin(a)*d)+'px)) scale(1.1) rotate('+(Math.random()*360)+'deg)', opacity:0 }
+      ], { duration: 1000 + Math.random()*600, delay: Math.random()*180, easing:'cubic-bezier(.2,.8,.3,1)', fill:'forwards' });
+    }
+  }
+  setTimeout(() => { layer.innerHTML = ''; }, 2300);
+}
+function drawStroke(s){
+  const W = pad._W, H = pad._H;
+  ctx.save();
+  ctx.strokeStyle = INK; ctx.fillStyle = INK; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if(s.length === 1){ ctx.beginPath(); ctx.arc(s[0].x*W, s[0].y*H, 4.5, 0, Math.PI*2); ctx.fill(); }
+  else { ctx.beginPath(); ctx.moveTo(s[0].x*W, s[0].y*H); for(let i=1;i<s.length;i++) ctx.lineTo(s[i].x*W, s[i].y*H); ctx.stroke(); }
+  ctx.restore();
+}
+function redraw(){
+  if(!pad._W) return;
+  const W = pad._W, H = pad._H;
+  ctx.clearRect(0,0,W,H); ctx.fillStyle = '#fff'; ctx.fillRect(0,0,W,H);
+  const L = layout(curWord());
+  drawGuide(L);
+  const lv = state.trace.level;
+  if(lv === 1){ drawWord(L, 0.3); drawArrows(L); }
+  else if(lv === 2) drawWord(L, 0.3);
+  else if(state.trace.showRef) drawWord(L, 0.16);
+  strokes.forEach(drawStroke);
+}
+
+function pt(e){
+  const r = pad.getBoundingClientRect();
+  return { x:(e.clientX - r.left)/r.width, y:(e.clientY - r.top)/r.height };
+}
+pad.addEventListener('pointerdown', e => {
+  e.preventDefault();
+  try{ pad.setPointerCapture(e.pointerId); }catch(err){}
+  cur = [pt(e)]; strokes.push(cur);
+  drawStroke(cur);
+});
+pad.addEventListener('pointermove', e => {
+  if(!cur) return;
+  e.preventDefault();
+  const p = pt(e), prev = cur[cur.length-1];
+  cur.push(p);
+  const W = pad._W, H = pad._H;
+  ctx.save();
+  ctx.strokeStyle = INK; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(prev.x*W, prev.y*H); ctx.lineTo(p.x*W, p.y*H); ctx.stroke();
+  ctx.restore();
+});
+['pointerup','pointercancel','lostpointercapture'].forEach(n => pad.addEventListener(n, () => { cur = null; }));
+['touchstart','touchmove'].forEach(n => pad.addEventListener(n, e => e.preventDefault(), {passive:false}));
+
+$$('.levels .btn').forEach(b => b.addEventListener('click', () => {
+  state.trace.level = +b.dataset.level; state.trace.showRef = false;
+  strokes = []; resetFeedback(); syncLevels(); renderHead(); redraw();
+}));
+$('#tClear').addEventListener('click', () => { strokes = []; redraw(); });
+$('#tUndo').addEventListener('click', () => { strokes.pop(); redraw(); });
+$('#tPeek').addEventListener('click', () => { state.trace.showRef = !state.trace.showRef; renderHead(); redraw(); });
+$('#tSpeak').addEventListener('click', () => {
+  const w = curWord(), syl = w.match(/../g) || [w];
+  speak(syl.join('... ') + '... ' + w, 0.7, true);
+});
+function nextWord(){
+  if(state.trace.i < state.trace.words.length - 1){ state.trace.i++; loadWord(); }
+  else {
+    $('#traceMain').hidden = true; $('#traceDone').hidden = false; $('#traceCount').textContent = 'Siap!';
+    $('#traceDoneStars').textContent = '⭐ ' + state.trace.stars + ' bintang · ' + state.trace.right + ' / ' + state.trace.words.length + ' perkataan betul';
+    jingle(true);
+  }
+}
+function award(n){
+  state.trace.busy = true;
+  state.trace.stars += n; state.trace.right++; updateCount();
+  $('#traceMsg').textContent = '🌟 Tulisan cantik! Kamu dapat ' + n + ' bintang!';
+  $('#tSkip').hidden = true; $('#tOk3').hidden = true;
+  celebrate(n);
+  jingle(n === 3);
+  setTimeout(() => speak(curWord(), 0.75), n === 3 ? 2900 : 1700);
+  setTimeout(nextWord, n === 3 ? 4200 : 3000);
+}
+$('#tDone').addEventListener('click', () => {
+  if(state.trace.busy) return;
+  const msg = $('#traceMsg');
+  if(!strokes.length){ msg.textContent = '✏️ Tulis dahulu, kemudian tekan Siap.'; return; }
+  if(state.trace.level === 3){
+    msg.textContent = '👩‍🏫 Tunjukkan kepada cikgu. Cikgu semak huruf tidak terbalik, saiz sama dan duduk atas garisan.';
+    $('#tOk3').hidden = false; $('#tSkip').hidden = false;
+    return;
+  }
+  const r = evaluate();
+  if(r.ok){ award(r.stars); return; }
+  const t = {
+    banyak:'Terlalu banyak coretan. Tekan 🧽 Padam, kemudian cuba lagi ya.',
+    hampir:'Hampir betul! Tekan 🧽 Padam dan cuba lagi ya 💪'
+  };
+  msg.textContent = t[r.why] || t.hampir;
+  $('#tSkip').hidden = false;
+  tone([[392,.18],[330,.22]], 'sine', 0.08);
+});
+$('#tOk3').addEventListener('click', () => { if(!state.trace.busy) award(3); });
+$('#tSkip').addEventListener('click', () => { if(!state.trace.busy) nextWord(); });
+$('#tAgain').addEventListener('click', () => startTrace(state.trace.words));
+
+window.addEventListener('resize', () => { if(!$('#screen-trace').hidden && !$('#traceMain').hidden) sizePad(); });
+if(document.fonts){
+  const again = () => { if(!$('#screen-trace').hidden) redraw(); };
+  if(document.fonts.load) document.fonts.load('400 40px Andika').then(again, again);
+  if(document.fonts.ready) document.fonts.ready.then(again);
+}
+if('speechSynthesis' in window){ try{ window.speechSynthesis.getVoices(); }catch(e){} }
+
+})();
+</script>
+</body>
+</html>

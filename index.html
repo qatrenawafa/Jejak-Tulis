@@ -1,0 +1,1223 @@
+<!doctype html>
+<!-- GitHub Pages ready: upload this file as index.html -->
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jejak Tulis</title>
+<meta name="theme-color" content="#2563eb">
+<meta name="description" content="Jejak Tulis: inovasi digital menulis perkataan untuk murid disgrafia Tahun 2 (DSKP Bahasa Melayu 3.1.1 i).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐝</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#e8f4ff; --card:#ffffff; --ink:#2b2d5b; --muted:#5a5f8a; --line:#c9d6ff;
+  --primary:#2563eb; --primary-dark:#1d4ed8; --accent:#ff9f1c;
+  --good:#16a34a; --good-bg:#d9f99d; --soft:#ffe0ec; --sun:#ffd23f;
+  --b:#2563eb; --d:#e11d74; --p:#16a34a; --q:#8b3dff;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; color:var(--ink);
+  background:linear-gradient(180deg,#d9f0ff 0%,#fde7f3 50%,#fff6c8 100%) fixed;
+  font-family:'Andika','Comic Sans MS',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  line-height:1.5; min-height:100vh; min-height:100dvh;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+.app{max-width:760px; margin:0 auto; padding:16px 16px 40px; position:relative; z-index:1}
+h1{
+  margin:.1em 0 .1em; font-size:clamp(2.4rem,10vw,3.6rem); font-weight:700; letter-spacing:.02em;
+  color:#e11d74;
+  background:linear-gradient(90deg,#2563eb,#8b3dff,#e11d74,#ff9f1c,#16a34a);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+h2{margin:0 0 .4em; font-size:1.35rem; color:#8b3dff}
+p{margin:.3em 0}
+
+/* Hiasan latar */
+.bg{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
+.bg span{position:absolute; font-size:2.2rem; opacity:.55; animation:floaty 7s ease-in-out infinite}
+.bg span:nth-child(1){left:4%; top:8%}
+.bg span:nth-child(2){right:5%; top:14%; animation-delay:1s; font-size:2.8rem}
+.bg span:nth-child(3){left:7%; top:46%; animation-delay:2s}
+.bg span:nth-child(4){right:6%; top:52%; animation-delay:3s}
+.bg span:nth-child(5){left:10%; bottom:8%; animation-delay:1.5s; font-size:2.8rem}
+.bg span:nth-child(6){right:9%; bottom:6%; animation-delay:2.5s}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-14px) rotate(4deg)}}
+
+.card{
+  background:var(--card); border:4px solid var(--line); border-radius:26px; padding:18px; margin-bottom:14px;
+  box-shadow:0 6px 0 rgba(37,99,235,.15), 0 14px 28px rgba(139,61,255,.12); position:relative; overflow:hidden;
+}
+.card::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:10px;
+  background:linear-gradient(90deg,#2563eb,#8b3dff,#e11d74,#ff9f1c,#ffd23f,#16a34a);
+}
+.card > *:first-child{margin-top:8px}
+.hero{text-align:center; padding:12px 0 6px}
+.owl{font-size:5rem; line-height:1; display:inline-block; animation:bob 3s ease-in-out infinite}
+.hero .owl{
+  padding:10px 18px; border-radius:50%;
+  background:radial-gradient(circle,#fff 40%,#ffe9a8 70%,rgba(255,233,168,0) 72%);
+}
+.sub{color:var(--muted); font-size:1.1rem; font-weight:700}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.owl,.bg span{animation:none}.pop{animation:none!important}}
+
+.btn{
+  font:inherit; font-weight:700; font-size:1.05rem; border:3px solid #fff; border-radius:20px;
+  min-height:56px; padding:12px 18px; cursor:pointer; color:var(--ink);
+  background:#ede4ff; box-shadow:0 5px 0 #b9a5f5; -webkit-tap-highlight-color:transparent;
+  transition:transform .08s, box-shadow .08s;
+}
+.btn:hover{filter:brightness(1.04)}
+.btn:active{transform:translateY(4px); box-shadow:0 1px 0 #b9a5f5}
+.btn:focus-visible,.opt:focus-visible{outline:5px solid #ff9f1c; outline-offset:3px}
+.btn.primary{background:linear-gradient(180deg,#4f8dff,#2563eb); color:#fff; box-shadow:0 5px 0 #1740a8}
+.btn.primary:active{box-shadow:0 1px 0 #1740a8}
+.btn.accent{background:linear-gradient(180deg,#ffc14d,#ff9f1c); color:#3b1c00; box-shadow:0 5px 0 #c26a00}
+.btn.accent:active{box-shadow:0 1px 0 #c26a00}
+.btn.ghost{background:#fff; border:3px solid var(--line); box-shadow:0 4px 0 #c9d6ff}
+.btn.big{width:100%; min-height:76px; font-size:1.35rem}
+.btn[aria-pressed="true"]{background:var(--good-bg); border:3px solid var(--good); box-shadow:0 5px 0 #6aa312}
+.btn[aria-pressed="false"]{background:#ffe0ec; border:3px solid #e11d74; box-shadow:0 5px 0 #b3105a}
+.stack{display:grid; gap:14px}
+.row{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+.topbar{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px}
+.topbar .btn{min-height:50px; padding:8px 14px}
+.pill{background:#fff; border:3px solid #ffd23f; border-radius:999px; padding:6px 16px; font-weight:700; font-size:1rem; box-shadow:0 3px 0 #f0b800}
+
+.settings .row{justify-content:space-between}
+.settings .btn{flex:1 1 220px}
+.hint{color:var(--muted); font-size:.95rem}
+.foot{color:var(--muted); font-size:.85rem; text-align:center; margin-top:18px}
+
+.round-btn{
+  display:flex; align-items:center; gap:14px; text-align:left; width:100%;
+  background:#fff; border:4px solid var(--line); border-radius:24px; padding:14px 16px; cursor:pointer;
+  font:inherit; color:inherit; margin-bottom:14px; min-height:92px; box-shadow:0 6px 0 rgba(0,0,0,.08);
+  transition:transform .1s;
+}
+.round-btn:hover{transform:translateY(-2px)}
+.round-btn:active{transform:translateY(3px)}
+.round-btn:nth-child(1){border-color:#4f8dff; background:#eef5ff}
+.round-btn:nth-child(2){border-color:#ff9f1c; background:#fff4e0}
+.round-btn:nth-child(3){border-color:#2fbf71; background:#e9fbf0}
+.round-btn .ri{font-size:2.4rem; background:#fff; border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; flex:none; box-shadow:inset 0 0 0 3px rgba(0,0,0,.06)}
+.round-btn b{display:block; font-size:1.3rem}
+.round-btn span.s{color:var(--muted); font-size:.95rem}
+
+.dots{display:flex; gap:7px; justify-content:center; margin:6px 0 14px; flex-wrap:wrap}
+.dot{width:34px; height:34px; border-radius:50%; border:3px solid #fff; background:#c9d6ff; display:flex; align-items:center; justify-content:center; font-size:1rem; box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.dot.now{background:#fff; border-color:#8b3dff; border-width:4px}
+.dot.right{background:#fff3b0; border-color:#ffd23f}
+.dot.wrong{background:#e3e6f5}
+
+.q-card{text-align:center}
+.q-visual{font-size:5.5rem; line-height:1.1; min-height:5rem; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap}
+.q-visual .bigword{font-size:3.4rem; font-weight:700; letter-spacing:.04em}
+.q-visual .blank{display:inline-block; min-width:1.6em; border-bottom:7px solid var(--accent); margin-left:2px; color:transparent; border-radius:4px}
+.q-prompt{font-size:1.3rem; font-weight:700; margin:.5em 0 .7em}
+.tip{background:#fffbe0; border:3px dashed #ffb703; border-radius:16px; padding:10px 12px; margin:6px 0 12px; font-size:.95rem; text-align:left}
+.tip .tg{display:grid; grid-template-columns:1fr 1fr; gap:4px 12px}
+.l-b,.l-d,.l-p,.l-q{font-weight:700}
+.l-b{color:var(--b)} .l-d{color:var(--d)} .l-p{color:var(--p)} .l-q{color:var(--q)}
+
+.options{display:grid; gap:14px; margin:10px 0}
+.options.letters{grid-template-columns:1fr 1fr}
+@media (min-width:520px){.options{grid-template-columns:1fr 1fr 1fr}}
+.opt{
+  font:inherit; font-size:2.1rem; font-weight:700; color:var(--ink);
+  min-height:92px; border-radius:22px; border:4px solid #ffd23f; background:#fff; cursor:pointer;
+  box-shadow:0 6px 0 #f0b800;
+  display:flex; align-items:center; justify-content:center; gap:10px; padding:8px 10px;
+  -webkit-tap-highlight-color:transparent; transition:transform .08s, box-shadow .08s;
+}
+.opt:hover:not(:disabled){background:#fffbe0; transform:translateY(-2px)}
+.opt:active:not(:disabled){transform:translateY(4px); box-shadow:0 1px 0 #f0b800}
+.opt .oe{font-size:2.2rem}
+.opt.correct{background:var(--good-bg); border-color:var(--good); box-shadow:0 6px 0 #0e7a35}
+.opt.oops{background:var(--soft); border-color:#e11d74; box-shadow:0 6px 0 #b3105a}
+.opt.dim{opacity:.55}
+.opt:disabled{cursor:default}
+.feedback{min-height:3.2em; text-align:center; font-size:1.25rem; font-weight:700; margin:8px 0}
+.feedback .pop{display:inline-block; animation:pop .35s ease-out; color:#0e7a35; font-size:1.5rem}
+
+.result{text-align:center}
+.score{font-size:4.4rem; font-weight:700; line-height:1.1; margin:6px 0; color:#8b3dff;
+  background:linear-gradient(90deg,#2563eb,#8b3dff,#e11d74,#ff9f1c); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+.stars{font-size:2.2rem; letter-spacing:.1em; margin:6px 0 10px; word-break:break-all}
+.msg{font-size:1.45rem; font-weight:700; margin-bottom:12px}
+
+.trace-head{display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:8px; flex-wrap:wrap}
+.trace-head .emoji{font-size:3.8rem; line-height:1}
+.trace-head .syl{font-size:2.7rem; font-weight:700; letter-spacing:.06em}
+.levels{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:6px 0 4px}
+.levels .btn{min-height:54px; padding:8px 6px; font-size:.95rem}
+.levels .btn.on{background:linear-gradient(180deg,#4f8dff,#2563eb); color:#fff; box-shadow:0 5px 0 #1740a8}
+.canvas-wrap{position:relative; border:4px solid #8b3dff; border-radius:22px; overflow:hidden; background:#fff; margin:10px 0; box-shadow:0 6px 0 #5b21b6}
+.starlayer{position:absolute; inset:0; pointer-events:none; overflow:hidden}
+.sp{position:absolute; left:50%; top:50%; font-size:2rem; line-height:1; white-space:nowrap; will-change:transform,opacity}
+.tmsg{min-height:2.6em; text-align:center; font-weight:700; font-size:1.15rem; margin:4px 0 2px}
+canvas{display:block; width:100%; touch-action:none; cursor:crosshair; -webkit-user-select:none; user-select:none}
+.trace-actions{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+@media (min-width:560px){.trace-actions{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}}
+.trace-actions .btn{min-height:58px; padding:8px 6px; font-size:.95rem}
+.trace-actions .done{grid-column:1/-1}
+@media (min-width:560px){.trace-actions .done{grid-column:auto}}
+.legend{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; font-size:.85rem; color:var(--muted); margin-top:6px}
+.legend i{display:inline-block; width:14px; height:14px; border-radius:4px; vertical-align:-2px; margin-right:4px}
+@media (prefers-reduced-motion:reduce){.btn,.opt,.round-btn{transition:none}}
+
+/* Lebah comel */
+.bee-wrap{display:inline-block; padding:8px 22px 4px; border-radius:50%;
+  background:radial-gradient(circle,#fff 42%,#ffe9a8 70%,rgba(255,233,168,0) 72%)}
+.bee{width:150px; height:140px; display:block; animation:bob 3s ease-in-out infinite; overflow:visible}
+.bee .wing{transform-box:fill-box; transform-origin:50% 100%; animation:flap 1.2s ease-in-out infinite}
+.bee .wr{animation-direction:reverse}
+@keyframes flap{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@media (prefers-reduced-motion:reduce){.bee,.bee .wing{animation:none}}
+
+/* Nama & kelas */
+.hello{font-size:1.5rem; font-weight:700; color:#8b3dff; min-height:1.6em; margin:.2em 0 0}
+.idrow{display:grid; gap:12px; grid-template-columns:1fr}
+@media (min-width:520px){.idrow{grid-template-columns:3fr 2fr}}
+.fld{display:block}
+.fld span{display:block; font-weight:700; margin:0 0 4px 4px; color:var(--muted)}
+.fld input{
+  font:inherit; font-size:1.3rem; font-weight:700; color:var(--ink); width:100%;
+  min-height:60px; padding:10px 16px; border-radius:18px; border:4px solid #ffd23f; background:#fffdf0;
+}
+.fld input::placeholder{color:#a3a8c8; font-weight:400}
+.fld input:focus{outline:none; border-color:#8b3dff; background:#fff; box-shadow:0 0 0 4px rgba(139,61,255,.2)}
+.who{display:inline-block; margin:6px 0 4px; font-size:1.1rem; border-color:#8b3dff; box-shadow:0 3px 0 #5b21b6}
+
+/* Papan skor */
+.board h2{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.board h2 .who{margin:0; font-size:.95rem}
+.brow{display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center; margin:8px 0}
+.brow .bi{font-size:1.6rem; width:44px; height:44px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:inset 0 0 0 3px rgba(0,0,0,.07)}
+.brow .bt{min-width:0}
+.brow .bn{font-weight:700; font-size:1rem}
+.bar{height:16px; border-radius:99px; background:#e6ebff; overflow:hidden; margin-top:3px}
+.bar i{display:block; height:100%; border-radius:99px; width:0; transition:width .6s}
+.brow:nth-child(1) .bar i{background:linear-gradient(90deg,#4f8dff,#2563eb)}
+.brow:nth-child(2) .bar i{background:linear-gradient(90deg,#ffc14d,#ff9f1c)}
+.brow:nth-child(3) .bar i{background:linear-gradient(90deg,#5ee09a,#16a34a)}
+.brow:nth-child(4) .bar i{background:linear-gradient(90deg,#c08bff,#8b3dff)}
+.brow .bv{font-weight:700; font-size:1rem; text-align:right; white-space:nowrap}
+.brow.none .bv{color:var(--muted); font-weight:400}
+.boardTotal{margin-top:10px; padding:10px 14px; border-radius:18px; background:#fff8d6; border:3px dashed #ffb703; font-weight:700; text-align:center; font-size:1.1rem}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* Sijil */
+.cert-wrap{padding:10px; border-radius:30px; background:linear-gradient(135deg,#2563eb,#8b3dff,#e11d74,#ff9f1c,#ffd23f,#16a34a); box-shadow:0 8px 0 rgba(0,0,0,.12)}
+.cert{background:#fffdf3; border-radius:22px; border:4px dashed #ffb703; padding:26px 16px 20px; text-align:center; position:relative; overflow:hidden}
+.cert .cc{position:absolute; font-size:2rem; opacity:.9}
+.cert .c1{left:10px; top:8px} .cert .c2{right:10px; top:8px} .cert .c3{left:10px; bottom:8px} .cert .c4{right:10px; bottom:8px}
+.cert .bee{width:96px; height:90px; margin:0 auto; animation:none}
+.cert .ct{margin:2px 0 0; font-size:clamp(1.7rem,7vw,2.6rem); font-weight:700; letter-spacing:.04em;
+  background:linear-gradient(90deg,#2563eb,#8b3dff,#e11d74,#ff9f1c); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:#e11d74}
+.cert .cs{color:var(--muted); font-weight:700}
+.cert .cgive{margin:12px 0 4px; font-size:1.05rem}
+.cert .cname{display:inline-block; min-width:58%; max-width:100%; font-size:clamp(1.8rem,7.5vw,2.9rem); font-weight:700; color:#e11d74; border-bottom:5px dotted #8b3dff; padding:0 14px; line-height:1.3; word-break:break-word}
+.cert .cclass{font-size:1.2rem; font-weight:700; color:#8b3dff; margin-top:6px}
+.cert .cmedal{font-size:3.6rem; line-height:1.1; margin-top:10px}
+.cert .cmsg{font-size:1.25rem; font-weight:700; margin-bottom:6px}
+.cert .cwhy{max-width:520px; margin:4px auto 8px}
+.crows{max-width:520px; margin:10px auto; text-align:left}
+.crow{display:flex; justify-content:space-between; gap:10px; padding:6px 12px; border-radius:14px; font-weight:700}
+.crow:nth-child(odd){background:#eef5ff} .crow:nth-child(even){background:#fff4e0}
+.cfoot{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; margin-top:18px; padding:0 14px; text-align:center; font-size:.95rem}
+.cfoot .sig{flex:0 0 42%; border-top:3px solid var(--ink); padding-top:4px; color:var(--muted)}
+.cfoot .dt{flex:0 0 42%; font-weight:700}
+.cfoot .dt small{display:block; color:var(--muted); font-weight:400; border-top:3px solid var(--ink); margin-top:4px; padding-top:4px}
+
+/* Muzik */
+.app{padding-bottom:110px}
+body.music-on .app{padding-bottom:230px}
+.mdock{position:fixed; left:10px; bottom:calc(10px + env(safe-area-inset-bottom)); z-index:50; display:flex; flex-direction:column; align-items:flex-start; gap:8px; max-width:calc(100vw - 20px)}
+.mvideo{width:208px; height:117px; border:4px solid #ff9f1c; border-radius:18px; overflow:hidden; background:#000; box-shadow:0 5px 0 #c26a00; display:none}
+.mdock.open .mvideo{display:block}
+.mvideo iframe{width:100%; height:100%; display:block}
+.mmsg{background:#fff; border:3px solid #e11d74; border-radius:14px; padding:8px 12px; font-size:.9rem; font-weight:700; max-width:260px}
+.mbtn{font:inherit; font-weight:700; font-size:1.05rem; min-height:56px; padding:10px 18px; border-radius:999px; cursor:pointer; color:var(--ink); border:3px solid #fff; background:#ffe0ec; box-shadow:0 5px 0 #b3105a, 0 8px 18px rgba(0,0,0,.18)}
+.mbtn:active{transform:translateY(4px); box-shadow:0 1px 0 #b3105a}
+.mbtn[aria-pressed="true"]{background:var(--good-bg); box-shadow:0 5px 0 #0e7a35, 0 8px 18px rgba(0,0,0,.18)}
+.mbtn:focus-visible{outline:5px solid #ff9f1c; outline-offset:3px}
+
+@media print{
+  @page{size:A4 landscape; margin:8mm}
+  html,body{background:#fff!important}
+  .bg,.mdock,.certbar,noscript,#screen-menu,#screen-rounds,#screen-quiz,#screen-result,#screen-trace,#certNone{display:none!important}
+  .app{padding:0!important; max-width:none}
+  #screen-cert{display:block!important}
+  .cert-wrap,.cert,.crow,.cert *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .cert-wrap{box-shadow:none}
+  .cert .bee,.cert .bee .wing{animation:none}
+}
+</style>
+</head>
+<body>
+<noscript><p style="padding:20px">Sila hidupkan JavaScript untuk menggunakan Jejak Tulis.</p></noscript>
+<div class="bg" aria-hidden="true"><span>⭐</span><span>🌈</span><span>☁️</span><span>🎈</span><span>🦋</span><span>✨</span></div>
+<main class="app">
+
+  <!-- MENU -->
+  <section id="screen-menu">
+    <div class="hero">
+      <div class="bee-wrap"><svg class="bee" viewBox="0 0 160 150" role="img" aria-label="Lebah comel">
+        <defs><clipPath id="beeBody"><ellipse cx="80" cy="88" rx="48" ry="40"/></clipPath></defs>
+        <g class="wing wl"><ellipse cx="50" cy="42" rx="21" ry="30" transform="rotate(-25 50 42)" fill="#e3f4ff" stroke="#7cc4f5" stroke-width="3"/></g>
+        <g class="wing wr"><ellipse cx="110" cy="42" rx="21" ry="30" transform="rotate(25 110 42)" fill="#e3f4ff" stroke="#7cc4f5" stroke-width="3"/></g>
+        <path d="M66 52 Q58 30 45 23" stroke="#4a2c0a" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="43" cy="21" r="7" fill="#ff6fa3"/>
+        <path d="M94 52 Q102 30 115 23" stroke="#4a2c0a" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="117" cy="21" r="7" fill="#ff6fa3"/>
+        <ellipse cx="80" cy="88" rx="48" ry="40" fill="#ffd23f"/>
+        <g clip-path="url(#beeBody)" fill="#4a2c0a"><rect x="20" y="109" width="120" height="9"/><rect x="20" y="124" width="120" height="12"/></g>
+        <ellipse cx="80" cy="88" rx="48" ry="40" fill="none" stroke="#4a2c0a" stroke-width="4"/>
+        <circle cx="63" cy="80" r="9" fill="#2b1b0a"/><circle cx="97" cy="80" r="9" fill="#2b1b0a"/>
+        <circle cx="66" cy="76" r="3.2" fill="#fff"/><circle cx="100" cy="76" r="3.2" fill="#fff"/>
+        <ellipse cx="48" cy="94" rx="8" ry="5" fill="#ff7aa5" opacity=".75"/><ellipse cx="112" cy="94" rx="8" ry="5" fill="#ff7aa5" opacity=".75"/>
+        <path d="M70 95 Q80 107 90 95" stroke="#4a2c0a" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </svg></div>
+      <h1>Jejak Tulis</h1>
+      <p class="sub">Kenal huruf, eja dan tulis perkataan dengan seronok!</p>
+      <p class="hello" id="hello" aria-live="polite"></p>
+    </div>
+    <div class="card idcard">
+      <h2>🐝 Siapa kamu?</h2>
+      <div class="idrow">
+        <label class="fld"><span>Nama</span>
+          <input id="inName" type="text" maxlength="40" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Tulis nama kamu"></label>
+        <label class="fld"><span>Kelas</span>
+          <input id="inClass" type="text" maxlength="20" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Contoh: 2 Bestari"></label>
+      </div>
+      <p class="hint" style="margin-top:8px">Nama dan kelas hanya dipaparkan pada skrin markah supaya guru boleh tangkap skrin. Tidak disimpan.</p>
+    </div>
+    <div class="stack" style="margin:16px 0">
+      <button class="btn primary big" data-go="rounds">🎮 Main Kuiz</button>
+      <button class="btn accent big" id="goTrace">✏️ Jejak &amp; Tulis Perkataan</button>
+    </div>
+    <div class="card board">
+      <h2>🏆 Papan skor <span class="who pill" hidden></span></h2>
+      <div id="boardRows"></div>
+      <div id="boardTotal" class="boardTotal"></div>
+      <button class="btn accent big" id="goCert" data-go="cert" style="margin-top:12px">🏅 Lihat sijil saya</button>
+    </div>
+    <div class="card settings">
+      <h2>Tetapan guru</h2>
+      <div class="row">
+        <button class="btn" id="tglSound" aria-pressed="true">🔊 Bunyi: HIDUP</button>
+        <button class="btn" id="tglColor" aria-pressed="true">🎨 Bantuan huruf b d p q: HIDUP</button>
+      </div>
+      <p class="hint" style="margin-top:10px">Bantuan huruf (warna dan petunjuk) boleh dimatikan untuk ujian pasca atau apabila murid sudah mahir.</p>
+    </div>
+    <p class="foot">Inovasi digital menulis untuk murid disgrafia · Bahasa Melayu Tahun 2<br>SK 3.1 Asas Menulis · SP 3.1.1 (i) Menulis secara mekanis: perkataan<br>Tiada data murid disimpan dalam aplikasi ini.</p>
+  </section>
+
+  <!-- PILIH PUSINGAN -->
+  <section id="screen-rounds" hidden>
+    <div class="topbar"><button class="btn ghost" data-go="menu">⬅ Menu</button><div class="pill">Pilih pusingan</div></div>
+    <div id="roundList"></div>
+    <p class="hint">Setiap pusingan ada 8 soalan. Tiada had masa, jawab ikut rentak sendiri.</p>
+  </section>
+
+  <!-- KUIZ -->
+  <section id="screen-quiz" hidden>
+    <div class="topbar"><button class="btn ghost" data-go="rounds">⬅ Keluar</button><div id="roundTitle" class="pill"></div></div>
+    <div id="dots" class="dots" aria-label="Kemajuan soalan"></div>
+    <div class="card q-card">
+      <div id="qVisual" class="q-visual"></div>
+      <p id="qPrompt" class="q-prompt"></p>
+      <div id="qTip" class="tip" hidden></div>
+      <button id="qSpeak" class="btn">🔊 Dengar</button>
+    </div>
+    <div id="options" class="options"></div>
+    <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+    <button id="nextBtn" class="btn primary big" hidden>Seterusnya ➡</button>
+  </section>
+
+  <!-- KEPUTUSAN -->
+  <section id="screen-result" hidden>
+    <div class="card result">
+      <div class="owl" aria-hidden="true" style="font-size:3.6rem">🦉</div>
+      <div class="who pill" hidden></div>
+      <p class="sub">Kamu betul</p>
+      <div id="score" class="score"></div>
+      <div id="stars" class="stars" aria-hidden="true"></div>
+      <div id="resMsg" class="msg"></div>
+      <p class="hint">Guru: tangkap skrin ini sebagai rekod markah.</p>
+    </div>
+    <div class="stack" id="resBtns"></div>
+  </section>
+
+  <!-- JEJAK -->
+  <section id="screen-trace" hidden>
+    <div class="topbar"><button class="btn ghost" data-go="menu">⬅ Menu</button><div id="traceCount" class="pill"></div></div>
+    <div class="card">
+      <div id="traceMain">
+        <div class="trace-head"><span id="tEmoji" class="emoji"></span><div id="tSyl" class="syl"></div></div>
+        <div class="levels">
+          <button class="btn on" data-level="1">1 · Anak panah</button>
+          <button class="btn" data-level="2">2 · Jejak tulisan</button>
+          <button class="btn" data-level="3">3 · Tulis sendiri</button>
+        </div>
+        <p id="levelHelp" class="hint" style="text-align:center"></p>
+        <div class="canvas-wrap"><canvas id="pad" aria-label="Ruang menulis"></canvas><div id="starLayer" class="starlayer" aria-hidden="true"></div></div>
+        <div id="traceMsg" class="tmsg" role="status" aria-live="polite"></div>
+        <div class="legend">
+          <span><i style="background:#edf5fa;border:1px solid #b8c7dd"></i>atas (b, d, k, t)</span>
+          <span><i style="background:#fff7da;border:1px solid #e0cf86"></i>tengah</span>
+          <span><i style="background:#e9f7ee;border:1px solid #b9d8c4"></i>bawah (p, q)</span>
+        </div>
+        <div class="trace-actions" style="margin-top:12px">
+          <button class="btn" id="tSpeak">🔊 Dengar</button>
+          <button class="btn" id="tUndo">↩ Undur</button>
+          <button class="btn" id="tClear">🧽 Padam</button>
+          <button class="btn" id="tPeek" hidden>👀 Tunjuk</button>
+          <button class="btn accent" id="tOk3" hidden>⭐ Cikgu: Betul</button>
+          <button class="btn" id="tSkip" hidden>⏭ Langkau</button>
+          <button class="btn primary done" id="tDone">✅ Siap</button>
+        </div>
+      </div>
+      <div id="traceDone" class="result" hidden>
+        <div class="owl" aria-hidden="true" style="font-size:3.6rem">🎉</div>
+        <div class="who pill" hidden></div>
+        <div class="msg">Hebat! Semua perkataan sudah ditulis.</div>
+        <div id="traceDoneStars" class="score" style="font-size:2.6rem"></div>
+        <p class="hint">Guru: tangkap skrin ini sebagai rekod.</p>
+        <div class="stack">
+          <button class="btn primary big" id="tAgain">🔁 Tulis lagi</button>
+          <button class="btn big" data-go="menu">🏠 Menu</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIJIL -->
+  <section id="screen-cert" hidden>
+    <div class="topbar certbar"><button class="btn ghost" data-go="menu">⬅ Menu</button><div class="pill">🏅 Sijil saya</div></div>
+    <div id="certNone" class="card" hidden>
+      <p class="msg" style="text-align:center">🌟 Main kuiz atau jejak tulis dahulu, kemudian sijil kamu akan siap!</p>
+      <div class="stack"><button class="btn primary big" data-go="rounds">🎮 Main Kuiz</button></div>
+    </div>
+    <div id="certWrap" class="cert-wrap"><div class="cert" id="certBox"></div></div>
+    <div class="stack certbar" id="certActions" style="margin-top:16px">
+      <button class="btn primary big" id="certPrint">🖨️ Cetak / Simpan sijil (PDF)</button>
+      <p class="hint" style="text-align:center">Boleh juga tangkap skrin sijil ini. Nama kosong? Tulis nama di laman utama dahulu.</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="mdock" id="mdock">
+  <div class="mvideo" id="mvideo"><div id="ytplayer"></div></div>
+  <div id="mmsg" class="mmsg" hidden>Video tidak dapat dimainkan di sini. <a href="https://www.youtube.com/watch?v=nRtRlmoyfyw&t=722s" target="_blank" rel="noopener">Buka di YouTube</a></div>
+  <button class="mbtn" id="mBtn" aria-pressed="false">🎵 Muzik: MATI</button>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- Pembantu ---------- */
+const $  = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const pick = a => a[Math.floor(Math.random()*a.length)];
+
+/* ---------- Data ---------- */
+const EMOJI = {bola:'⚽',dadu:'🎲',pasu:'🏺',baju:'👕',pipi:'😊',bata:'🧱',kuda:'🐴',buku:'📖',topi:'🧢',sapu:'🧹',roti:'🍞',kopi:'☕',nasi:'🍚'};
+const ALL_WORDS = Object.keys(EMOJI);
+const LCOL = {b:'#2563eb', d:'#e11d74', p:'#16a34a', q:'#8b3dff'};
+const LETTERS = ['b','d','p','q'];
+
+const first = word => ({kind:'first', word, ans:word[0], wrong:LETTERS.filter(l => l !== word[0])});
+const spell = (word, wrong) => ({kind:'spell', word, ans:word, wrong});
+const fill  = (word, wrong) => ({kind:'fill', word, ans:word.slice(2), wrong});
+const start = (letter, ans, wrong) => ({kind:'start', letter, ans, wrong});
+
+const ROUNDS = [
+  { title:'Pusingan 1', sub:'Huruf pertama dan ejaan', icon:'🔤',
+    words:['bola','dadu','pasu','baju'],
+    qs:[ first('bola'), first('dadu'), first('pasu'), first('baju'), first('pipi'), first('bata'),
+         spell('bola',['dola','pola']), spell('dadu',['badu','padu']) ] },
+  { title:'Pusingan 2', sub:'Pilih ejaan dan lengkapkan perkataan', icon:'✏️',
+    words:['kuda','buku','topi','sapu'],
+    qs:[ spell('baju',['daju','paju']), spell('pasu',['basu','dasu']), spell('kuda',['kuba','kupa']),
+         spell('buku',['dudu','pupu']), spell('topi',['tobi','dopi']), spell('sapu',['sabu','sadu']),
+         fill('baju',['du','pu']), fill('bola',['da','pa']) ] },
+  { title:'Pusingan 3', sub:'Lengkapkan dan huruf permulaan', icon:'⭐',
+    words:['roti','kopi','nasi','pipi'],
+    qs:[ fill('kuda',['ba','pa']), fill('roti',['di','bi']), fill('kopi',['bi','di']), fill('nasi',['di','pi']),
+         start('d','dadu',['bola','pasu']), start('b','baju',['dadu','pasu']),
+         start('p','pasu',['bola','dadu']), start('k','kuda',['baju','topi']) ] }
+];
+
+/* ---------- Keadaan ---------- */
+const state = {
+  sound:true, color:true,
+  ri:0, round:null, qi:0, score:0, results:[], locked:false,
+  trace:{ words:[], i:0, level:1, showRef:false, stars:0, right:0, busy:false }
+};
+
+/* ---------- Bunyi ---------- */
+let actx = null;
+function ac(){
+  if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
+  if(actx && actx.state === 'suspended'){ try{ actx.resume(); }catch(e){} }
+  return actx;
+}
+function tone(seq, type, vol){
+  if(!state.sound) return;
+  const c = ac(); if(!c) return;
+  let t = c.currentTime;
+  seq.forEach(([f,d]) => {
+    const o = c.createOscillator(), g = c.createGain();
+    o.type = type||'sine'; o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(vol||0.12, t+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t+d);
+    o.connect(g); g.connect(c.destination);
+    o.start(t); o.stop(t+d+0.03);
+    t += d*0.85;
+  });
+}
+function speak(text, rate, force){
+  if(!force && !state.sound) return;
+  if(!('speechSynthesis' in window)) return;
+  try{
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ms-MY'; u.rate = rate || 0.8;
+    const vs = window.speechSynthesis.getVoices();
+    const v = vs.find(x => /^ms/i.test(x.lang)) || vs.find(x => /^id/i.test(x.lang));
+    if(v) u.voice = v;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- Warna huruf ---------- */
+function col(str){
+  return Array.from(str).map(ch => (state.color && LCOL[ch]) ? '<span class="l-'+ch+'">'+ch+'</span>' : ch).join('');
+}
+
+/* ---------- Navigasi ---------- */
+function go(name){
+  $$('section[id^="screen-"]').forEach(s => s.hidden = (s.id !== 'screen-'+name));
+  window.scrollTo(0,0);
+  if(name === 'trace') requestAnimationFrame(sizePad);
+  if(name !== 'quiz' && name !== 'trace' && 'speechSynthesis' in window){ try{ window.speechSynthesis.cancel(); }catch(e){} }
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if(b) go(b.dataset.go);
+});
+
+/* ---------- Menu & tetapan ---------- */
+function syncToggles(){
+  const s = $('#tglSound'), c = $('#tglColor');
+  s.setAttribute('aria-pressed', state.sound); s.textContent = '🔊 Bunyi: ' + (state.sound ? 'HIDUP' : 'MATI');
+  c.setAttribute('aria-pressed', state.color);  c.textContent = '🎨 Bantuan huruf b d p q: ' + (state.color ? 'HIDUP' : 'MATI');
+}
+$('#tglSound').addEventListener('click', () => { state.sound = !state.sound; syncToggles(); if(state.sound) tone([[523,.12],[659,.12]]); });
+$('#tglColor').addEventListener('click', () => { state.color = !state.color; syncToggles(); });
+syncToggles();
+
+function buildRounds(){
+  $('#roundList').innerHTML = ROUNDS.map((r,i) =>
+    '<button class="round-btn" data-round="'+i+'"><span class="ri">'+r.icon+'</span><span><b>'+r.title+'</b><span class="s">'+r.sub+' · '+r.qs.length+' soalan</span></span></button>'
+  ).join('');
+}
+buildRounds();
+$('#roundList').addEventListener('click', e => {
+  const b = e.target.closest('[data-round]'); if(b) startRound(+b.dataset.round);
+});
+
+/* ---------- Kuiz ---------- */
+function startRound(i){
+  ac();
+  state.ri = i; state.round = ROUNDS[i]; state.qi = 0; state.score = 0;
+  state.results = []; state.locked = false;
+  $('#roundTitle').textContent = state.round.title;
+  go('quiz'); renderQuestion();
+}
+
+function renderDots(){
+  const n = state.round.qs.length;
+  let h = '';
+  for(let i=0;i<n;i++){
+    let cls = 'dot', t = '';
+    if(i < state.qi || (i === state.qi && state.locked)){
+      if(state.results[i]){ cls += ' right'; t = '⭐'; } else { cls += ' wrong'; t = '•'; }
+    } else if(i === state.qi){ cls += ' now'; }
+    h += '<span class="'+cls+'">'+t+'</span>';
+  }
+  $('#dots').innerHTML = h;
+}
+
+function tipHTML(){
+  return '<div class="tg">' +
+    '<span><span class="l-b">b</span> batang kiri, perut ke kanan</span>' +
+    '<span><span class="l-d">d</span> perut kiri, batang kanan</span>' +
+    '<span><span class="l-p">p</span> batang turun, perut ke kanan</span>' +
+    '<span><span class="l-q">q</span> batang turun, perut ke kiri</span></div>';
+}
+
+function renderQuestion(){
+  const q = state.round.qs[state.qi];
+  state.locked = false;
+  renderDots();
+  $('#feedback').innerHTML = '';
+  $('#nextBtn').hidden = true;
+
+  const vis = $('#qVisual'), pr = $('#qPrompt'), tip = $('#qTip');
+  tip.hidden = true;
+  let say = '';
+
+  if(q.kind === 'first'){
+    vis.innerHTML = '<span>'+EMOJI[q.word]+'</span><span class="bigword">'+col(q.word)+'</span>';
+    pr.textContent = 'Apakah huruf pertama perkataan ini?';
+    say = 'Apakah huruf pertama perkataan ' + q.word;
+    if(state.color){ tip.innerHTML = tipHTML(); tip.hidden = false; }
+  } else if(q.kind === 'spell'){
+    vis.innerHTML = '<span>'+EMOJI[q.word]+'</span>';
+    pr.textContent = 'Pilih ejaan yang betul.';
+    say = q.word;
+  } else if(q.kind === 'fill'){
+    vis.innerHTML = '<span>'+EMOJI[q.word]+'</span><span class="bigword">'+col(q.word.slice(0,2))+'<span class="blank">__</span></span>';
+    pr.textContent = 'Lengkapkan perkataan ini.';
+    say = q.word;
+  } else {
+    vis.innerHTML = '<span class="bigword" style="font-size:5rem">'+col(q.letter)+'</span>';
+    pr.textContent = 'Perkataan manakah bermula dengan huruf ini?';
+    say = 'Perkataan manakah bermula dengan huruf ' + q.letter;
+    if(state.color && 'bdpq'.indexOf(q.letter) >= 0){ tip.innerHTML = tipHTML(); tip.hidden = false; }
+  }
+  q.say = say;
+
+  const opts = shuffle([q.ans].concat(q.wrong));
+  const box = $('#options');
+  box.className = 'options' + (q.kind === 'first' ? ' letters' : '');
+  box.innerHTML = opts.map(o =>
+    '<button class="opt" data-v="'+o+'">' +
+      ((q.kind === 'start' && EMOJI[o]) ? '<span class="oe">'+EMOJI[o]+'</span>' : '') +
+      '<span class="ot">'+col(o)+'</span></button>'
+  ).join('');
+}
+
+$('#qSpeak').addEventListener('click', () => { const q = state.round.qs[state.qi]; speak(q.say, 0.75, true); });
+
+$('#options').addEventListener('click', e => {
+  const b = e.target.closest('.opt');
+  if(b) answer(b);
+});
+
+function answer(btn){
+  if(state.locked) return;
+  state.locked = true;
+  const q = state.round.qs[state.qi];
+  const ok = btn.dataset.v === q.ans;
+  state.results[state.qi] = ok;
+  if(ok) state.score++;
+
+  $$('.opt').forEach(b => {
+    b.disabled = true;
+    if(b.dataset.v === q.ans) b.classList.add('correct');
+    else if(b === btn) b.classList.add('oops');
+    else b.classList.add('dim');
+  });
+
+  const full = (q.kind === 'fill' || q.kind === 'spell') ? q.word : q.ans;
+  if(ok){
+    $('#feedback').innerHTML = '<span class="pop">' + pick(['🌟 Betul! Hebat!','🎉 Bagus sekali!','👏 Tepat sekali!','⭐ Cantik! Betul!']) + '</span>';
+    tone([[523,.12],[659,.12],[784,.2]]);
+  } else {
+    $('#feedback').innerHTML = 'Tidak mengapa, kita belajar! Jawapan betul: <b>' + col(full) + '</b>';
+    tone([[392,.18],[330,.22]], 'sine', 0.08);
+  }
+  const spoken = (q.kind === 'start') ? q.ans : (q.word || q.ans);
+  setTimeout(() => speak(spoken, 0.75), 450);
+
+  renderDots();
+  const last = state.qi === state.round.qs.length - 1;
+  const nb = $('#nextBtn');
+  nb.textContent = last ? 'Lihat skor ⭐' : 'Seterusnya ➡';
+  nb.hidden = false;
+  nb.focus({preventScroll:true});
+  nb.scrollIntoView({block:'nearest', behavior:'smooth'});
+}
+
+$('#nextBtn').addEventListener('click', () => {
+  if(state.qi < state.round.qs.length - 1){ state.qi++; renderQuestion(); window.scrollTo(0,0); }
+  else showResult();
+});
+
+function showResult(){
+  const total = state.round.qs.length, s = state.score;
+  $('#score').textContent = s + ' / ' + total;
+  let st = '';
+  for(let i=0;i<total;i++) st += i < s ? '⭐' : '☆';
+  $('#stars').textContent = st;
+  let m;
+  if(s === total) m = '🏆 Sempurna! Kamu hebat!';
+  else if(s >= total*0.75) m = '🌟 Hebat! Sikit lagi!';
+  else if(s >= total*0.5) m = '👍 Bagus! Teruskan berlatih!';
+  else m = '💪 Jom cuba lagi, kamu boleh!';
+  $('#resMsg').textContent = m;
+
+  let b = '<button class="btn primary big" id="rAgain">🔁 Main lagi pusingan ini</button>';
+  if(state.ri < ROUNDS.length - 1) b += '<button class="btn accent big" id="rNext">➡ Pusingan seterusnya</button>';
+  b += '<button class="btn big" id="rTrace">✏️ Tulis perkataan pusingan ini</button>';
+  b += '<button class="btn big" data-go="menu">🏠 Menu</button>';
+  $('#resBtns').innerHTML = b;
+  $('#rAgain').onclick = () => startRound(state.ri);
+  if($('#rNext')) $('#rNext').onclick = () => startRound(state.ri + 1);
+  $('#rTrace').onclick = () => startTrace(state.round.words);
+
+  go('result');
+  tone(s >= total*0.5 ? [[523,.12],[659,.12],[784,.12],[1047,.3]] : [[440,.15],[523,.2]]);
+  if(window.JT) JT.quiz(state.ri, s, total);
+}
+
+/* ---------- Jejak & tulis ---------- */
+const pad = $('#pad'), ctx = pad.getContext('2d');
+let strokes = [], cur = null;
+const INK = '#1d3557';
+const LEVEL_HELP = {
+  1:'Mula dari titik bernombor, ikut anak panah. Duduk atas garisan merah.',
+  2:'Jejak tulisan kelabu. Ingat arah goresan tadi.',
+  3:'Tulis sendiri di atas garisan merah. Tekan 👀 jika mahu tengok semula.'
+};
+
+function curWord(){ return state.trace.words[state.trace.i] || 'bola'; }
+
+function startTrace(words){
+  ac();
+  state.trace.words = words.slice();
+  state.trace.i = 0; state.trace.level = 1; state.trace.showRef = false;
+  state.trace.stars = 0; state.trace.right = 0; state.trace.busy = false;
+  $('#traceMain').hidden = false; $('#traceDone').hidden = true;
+  go('trace'); loadWord();
+}
+$('#goTrace').addEventListener('click', () => startTrace(ALL_WORDS));
+
+function syncLevels(){
+  $$('.levels .btn').forEach(b => b.classList.toggle('on', +b.dataset.level === state.trace.level));
+  $('#levelHelp').textContent = LEVEL_HELP[state.trace.level];
+  $('#tPeek').hidden = state.trace.level !== 3;
+}
+
+function renderHead(){
+  const w = curWord(), t = state.trace;
+  const syl = w.match(/../g) || [w];
+  $('#tEmoji').textContent = EMOJI[w] || '✏️';
+  const hide = (t.level === 3 && !t.showRef);
+  $('#tSyl').innerHTML = hide ? '? · ?' : syl.map(s => col(s)).join(' · ');
+}
+
+function updateCount(){
+  $('#traceCount').textContent = 'Perkataan ' + (state.trace.i+1) + ' / ' + state.trace.words.length + ' · ⭐ ' + state.trace.stars;
+}
+function resetFeedback(){
+  $('#traceMsg').textContent = ''; $('#tSkip').hidden = true; $('#tOk3').hidden = true; $('#starLayer').innerHTML = '';
+}
+function loadWord(){
+  strokes = []; cur = null; state.trace.showRef = false; state.trace.busy = false;
+  resetFeedback(); updateCount();
+  syncLevels(); renderHead(); sizePad();
+}
+
+function sizePad(){
+  const wrap = pad.parentElement;
+  const W = wrap.clientWidth; if(!W) return;
+  const H = Math.round(Math.min(Math.max(W*0.6, 220), 380));
+  const dpr = window.devicePixelRatio || 1;
+  pad.style.height = H + 'px';
+  pad.width = Math.round(W*dpr); pad.height = Math.round(H*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  pad._W = W; pad._H = H;
+  redraw();
+}
+
+function layout(word){
+  const W = pad._W, H = pad._H;
+  let fs = H*0.6;
+  const fontOf = s => '400 ' + s + 'px Andika, "Comic Sans MS", system-ui, sans-serif';
+  ctx.font = fontOf(fs);
+  const widthOf = () => Array.from(word).reduce((a,ch) => a + ctx.measureText(ch).width, 0);
+  let wd = widthOf();
+  const maxW = W*0.92;
+  if(wd > maxW){ fs *= maxW/wd; ctx.font = fontOf(fs); wd = widthOf(); }
+  const xh   = ctx.measureText('x').actualBoundingBoxAscent || fs*0.5;
+  const asc  = ctx.measureText('l').actualBoundingBoxAscent || fs*0.74;
+  const desc = ctx.measureText('p').actualBoundingBoxDescent || fs*0.22;
+  return { word, fs, wd, x0:(W-wd)/2, base:H*0.68, font:fontOf(fs), xh, asc, desc };
+}
+
+function hline(y, color, w, dash){
+  ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = w; ctx.setLineDash(dash || []);
+  ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(pad._W,y); ctx.stroke(); ctx.restore();
+}
+function drawGuide(L){
+  const W = pad._W, b = L.base, xh = b - L.xh, asc = b - L.asc, dsc = b + L.desc;
+  ctx.fillStyle = '#edf5fa'; ctx.fillRect(0, asc, W, xh-asc);
+  ctx.fillStyle = '#fff7da'; ctx.fillRect(0, xh, W, b-xh);
+  ctx.fillStyle = '#e9f7ee'; ctx.fillRect(0, b, W, dsc-b);
+  hline(asc, '#b8c7dd', 1.5);
+  hline(xh, '#7aa2e6', 2, [8,6]);
+  hline(b, '#e2706b', 3);
+  hline(dsc, '#b9d8c4', 1.5);
+}
+function drawWord(L, alpha){
+  ctx.save();
+  ctx.font = L.font; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+  let x = L.x0;
+  Array.from(L.word).forEach(ch => {
+    const c = (state.color && LCOL[ch]) ? LCOL[ch] : '#8b98a3';
+    ctx.globalAlpha = alpha; ctx.fillStyle = c; ctx.fillText(ch, x, L.base);
+    x += ctx.measureText(ch).width;
+  });
+  ctx.restore();
+}
+
+/* Anak panah arah goresan. u: 0..1 lebar huruf; v: 0 garis dasar, 1 tinggi tengah, 2 atas, -1 bawah */
+function arc(cu, cv, ru, rv, a0, a1, n){
+  n = n || 14; const p = [];
+  for(let i=0;i<=n;i++){ const a = (a0 + (a1-a0)*i/n) * Math.PI/180; p.push([cu + ru*Math.cos(a), cv + rv*Math.sin(a)]); }
+  return p;
+}
+const GLYPHS = {
+  o:[ arc(.5,.5,.5,.5,70,430,18) ],
+  a:[ arc(.45,.5,.45,.5,55,355), [[.95,1],[.95,0]] ],
+  b:[ [[.05,2],[.05,0]], arc(.52,.5,.48,.5,150,-170) ],
+  d:[ arc(.48,.5,.48,.5,40,355), [[.95,2],[.95,0]] ],
+  p:[ [[.05,1],[.05,-1]], arc(.52,.5,.48,.5,150,-170) ],
+  q:[ arc(.48,.5,.48,.5,40,355), [[.95,1],[.95,-1]] ],
+  l:[ [[.5,2],[.5,0]] ],
+  i:[ [[.5,1],[.5,0]], [[.5,1.65]] ],
+  j:[ [[.78,1],[.78,-.5],[.62,-.85],[.3,-1],[.05,-.9]], [[.78,1.65]] ],
+  u:[ [[.06,1],[.06,.4]].concat(arc(.5,.4,.44,.4,180,360,10)).concat([[.94,1]]), [[.94,1],[.94,0]] ],
+  s:[ [[.85,.85],[.6,1],[.3,1],[.1,.8],[.15,.6],[.5,.5],[.85,.4],[.9,.2],[.65,0],[.3,0],[.05,.15]] ],
+  t:[ [[.4,1.55],[.4,.2],[.55,0],[.85,.05]], [[.0,1],[.85,1]] ],
+  k:[ [[.05,2],[.05,0]], [[.9,1],[.05,.4]], [[.3,.65],[.95,0]] ],
+  r:[ [[.1,1],[.1,0]], [[.1,.55],[.3,.95],[.6,1],[.95,.85]] ],
+  n:[ [[.08,1],[.08,0]], [[.08,.6],[.3,.95],[.6,1],[.85,.8],[.92,.5],[.92,0]] ]
+};
+
+function glyphBoxes(L){
+  ctx.save(); ctx.font = L.font; ctx.textAlign = 'left';
+  let x = L.x0; const out = [];
+  Array.from(L.word).forEach(ch => {
+    const m = ctx.measureText(ch);
+    out.push({ ch, l:x - m.actualBoundingBoxLeft, r:x + m.actualBoundingBoxRight });
+    x += m.width;
+  });
+  ctx.restore();
+  return out;
+}
+
+function drawArrowStroke(pts, n, fs){
+  const R = Math.max(10, fs*0.07);
+  ctx.save();
+  ctx.strokeStyle = '#516575'; ctx.fillStyle = '#516575';
+  ctx.lineWidth = Math.max(2.5, fs*0.025); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if(pts.length > 1){
+    ctx.globalAlpha = 0.9;
+    ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+    for(let i=1;i<pts.length-1;i++){
+      const mx = (pts[i].x + pts[i+1].x)/2, my = (pts[i].y + pts[i+1].y)/2;
+      ctx.quadraticCurveTo(pts[i].x, pts[i].y, mx, my);
+    }
+    const a = pts[pts.length-2], b = pts[pts.length-1];
+    ctx.lineTo(b.x, b.y); ctx.stroke();
+    const ang = Math.atan2(b.y - a.y, b.x - a.x), sz = Math.max(10, fs*0.07);
+    ctx.beginPath(); ctx.moveTo(b.x, b.y);
+    ctx.lineTo(b.x - sz*Math.cos(ang-0.5), b.y - sz*Math.sin(ang-0.5));
+    ctx.lineTo(b.x - sz*Math.cos(ang+0.5), b.y - sz*Math.sin(ang+0.5));
+    ctx.closePath(); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, R, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.font = '700 ' + Math.round(R*1.2) + 'px Andika, system-ui, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(String(n), pts[0].x, pts[0].y + 1);
+  ctx.restore();
+}
+
+function glyphPaths(L){
+  const th = L.fs*0.09, h = th/2;
+  const y0 = L.base - h, y1 = L.base - L.xh + h, y2 = L.base - L.asc + h, ym = L.base + L.desc - h;
+  const vy = v => v >= 1 ? y1 + (v-1)*(y2-y1) : (v >= 0 ? y0 + v*(y1-y0) : y0 + (-v)*(ym-y0));
+  const out = [];
+  glyphBoxes(L).forEach(bx => {
+    const def = GLYPHS[bx.ch]; if(!def) return;
+    const wdt = Math.max(bx.r - bx.l - th, 1);
+    def.forEach((st, si) => {
+      out.push({ n:si+1, pts: st.map(p => ({ x:bx.l + h + p[0]*wdt, y:vy(p[1]) })) });
+    });
+  });
+  return out;
+}
+function plen(pts){
+  let s = 0;
+  for(let i=1;i<pts.length;i++) s += Math.hypot(pts[i].x-pts[i-1].x, pts[i].y-pts[i-1].y);
+  return s;
+}
+function drawArrows(L){
+  glyphPaths(L).forEach(g => drawArrowStroke(g.pts, g.n, L.fs));
+}
+
+/* ---------- Semakan tulisan (anggaran) ---------- */
+function eachGlyph(x, L, cb){
+  x.font = L.font; x.textAlign = 'left'; x.textBaseline = 'alphabetic';
+  let px = L.x0;
+  Array.from(L.word).forEach(ch => { cb(ch, px); px += x.measureText(ch).width; });
+}
+function rasterMask(W, H, draw){
+  const c = document.createElement('canvas'); c.width = W; c.height = H;
+  const x = c.getContext('2d'); draw(x);
+  const d = x.getImageData(0,0,W,H).data, m = new Uint8Array(W*H);
+  for(let i=0;i<m.length;i++) m[i] = d[i*4+3] > 60 ? 1 : 0;
+  return m;
+}
+function maskBox(m, W, H){
+  let x0=W, y0=H, x1=-1, y1=-1;
+  for(let y=0;y<H;y++) for(let x=0;x<W;x++) if(m[y*W+x]){ if(x<x0)x0=x; if(x>x1)x1=x; if(y<y0)y0=y; if(y>y1)y1=y; }
+  return { l:x0, t:y0, w:Math.max(x1-x0,1), h:Math.max(y1-y0,1) };
+}
+function evaluate(){
+  if(!strokes.length) return { empty:true };
+  const W = Math.round(pad._W), H = Math.round(pad._H);
+  const L = layout(curWord());
+  const fontOk = !document.fonts || !document.fonts.check || document.fonts.check('400 40px Andika');
+
+  const E = glyphPaths(L).reduce((a,g) => a + plen(g.pts), 0);
+  let ink = strokes.map(s => s.map(p => ({ x:p.x*W, y:p.y*H })));
+  const inkLen = ink.reduce((a,s) => a + plen(s), 0);
+  if(inkLen > E*2.7) return { ok:false, why:'banyak' };
+
+  const rRef = L.fs*0.09, rInk = L.fs*0.06;
+  const refFill = x => { x.fillStyle = '#000'; eachGlyph(x, L, (ch,px) => x.fillText(ch, px, L.base)); };
+  const ref  = rasterMask(W, H, refFill);
+  const refD = rasterMask(W, H, x => {
+    x.strokeStyle = '#000'; x.lineWidth = 2*rRef; x.lineJoin = 'round';
+    eachGlyph(x, L, (ch,px) => x.strokeText(ch, px, L.base));
+    refFill(x);
+  });
+
+  const drawInk = (x, lw) => {
+    x.strokeStyle = '#000'; x.fillStyle = '#000'; x.lineWidth = lw; x.lineCap = 'round'; x.lineJoin = 'round';
+    ink.forEach(s => {
+      x.beginPath();
+      if(s.length === 1){ x.arc(s[0].x, s[0].y, lw/2, 0, Math.PI*2); x.fill(); }
+      else { x.moveTo(s[0].x, s[0].y); for(let i=1;i<s.length;i++) x.lineTo(s[i].x, s[i].y); x.stroke(); }
+    });
+  };
+  const inkM  = rasterMask(W, H, x => drawInk(x, 9));
+  const inkD  = rasterMask(W, H, x => drawInk(x, 9 + 2*rInk));
+
+  let refN = 0, refHit = 0, inkN = 0, inkIn = 0;
+  for(let i=0;i<ref.length;i++){
+    if(ref[i]){ refN++; if(inkD[i]) refHit++; }
+    if(inkM[i]){ inkN++; if(refD[i]) inkIn++; }
+  }
+  const cov = refN ? refHit/refN : 0, prec = inkN ? inkIn/inkN : 0;
+  let covT = 0.72, precT = 0.78;
+  if(!fontOk){ covT -= 0.12; precT -= 0.10; }
+  const ok = cov >= covT && prec >= precT;
+  const s = (cov + prec)/2;
+  const stars = s >= 0.9 ? 3 : (s >= 0.82 ? 2 : 1);
+  return { ok, stars, cov, prec, why: ok ? '' : 'hampir' };
+}
+
+/* ---------- Bintang di skrin ---------- */
+function celebrate(n){
+  const layer = $('#starLayer'); layer.innerHTML = '';
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const C = 'translate(-50%,-50%)';
+  const big = document.createElement('div');
+  big.className = 'sp'; big.style.fontSize = '4.2rem'; big.style.transform = C; big.textContent = '⭐'.repeat(n);
+  layer.appendChild(big);
+  big.animate([
+    { transform: C+' scale(.2)', opacity:0 },
+    { transform: C+' scale(1.25)', opacity:1, offset:.4 },
+    { transform: C+' scale(1)', opacity:1, offset:.8 },
+    { transform: C+' scale(1)', opacity:0 }
+  ], { duration: reduce ? 900 : 1800, easing:'ease-out', fill:'forwards' });
+  if(!reduce){
+    const R = Math.max(pad._W||300, 300)*0.45;
+    for(let i=0;i<20;i++){
+      const s = document.createElement('div');
+      s.className = 'sp'; s.textContent = (i % 4 === 0) ? '✨' : '⭐';
+      s.style.fontSize = (1.2 + Math.random()*1.4) + 'rem'; s.style.transform = C;
+      layer.appendChild(s);
+      const a = Math.random()*Math.PI*2, d = R*(0.4 + Math.random()*0.6);
+      s.animate([
+        { transform: C+' scale(.3)', opacity:1 },
+        { transform: 'translate(calc(-50% + '+(Math.cos(a)*d)+'px), calc(-50% + '+(Math.sin(a)*d)+'px)) scale(1.1) rotate('+(Math.random()*360)+'deg)', opacity:0 }
+      ], { duration: 1000 + Math.random()*600, delay: Math.random()*180, easing:'cubic-bezier(.2,.8,.3,1)', fill:'forwards' });
+    }
+  }
+  setTimeout(() => { layer.innerHTML = ''; }, 2300);
+}
+function drawStroke(s){
+  const W = pad._W, H = pad._H;
+  ctx.save();
+  ctx.strokeStyle = INK; ctx.fillStyle = INK; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if(s.length === 1){ ctx.beginPath(); ctx.arc(s[0].x*W, s[0].y*H, 4.5, 0, Math.PI*2); ctx.fill(); }
+  else { ctx.beginPath(); ctx.moveTo(s[0].x*W, s[0].y*H); for(let i=1;i<s.length;i++) ctx.lineTo(s[i].x*W, s[i].y*H); ctx.stroke(); }
+  ctx.restore();
+}
+function redraw(){
+  if(!pad._W) return;
+  const W = pad._W, H = pad._H;
+  ctx.clearRect(0,0,W,H); ctx.fillStyle = '#fff'; ctx.fillRect(0,0,W,H);
+  const L = layout(curWord());
+  drawGuide(L);
+  const lv = state.trace.level;
+  if(lv === 1){ drawWord(L, 0.3); drawArrows(L); }
+  else if(lv === 2) drawWord(L, 0.3);
+  else if(state.trace.showRef) drawWord(L, 0.16);
+  strokes.forEach(drawStroke);
+}
+
+function pt(e){
+  const r = pad.getBoundingClientRect();
+  return { x:(e.clientX - r.left)/r.width, y:(e.clientY - r.top)/r.height };
+}
+pad.addEventListener('pointerdown', e => {
+  e.preventDefault();
+  try{ pad.setPointerCapture(e.pointerId); }catch(err){}
+  cur = [pt(e)]; strokes.push(cur);
+  drawStroke(cur);
+});
+pad.addEventListener('pointermove', e => {
+  if(!cur) return;
+  e.preventDefault();
+  const p = pt(e), prev = cur[cur.length-1];
+  cur.push(p);
+  const W = pad._W, H = pad._H;
+  ctx.save();
+  ctx.strokeStyle = INK; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(prev.x*W, prev.y*H); ctx.lineTo(p.x*W, p.y*H); ctx.stroke();
+  ctx.restore();
+});
+['pointerup','pointercancel','lostpointercapture'].forEach(n => pad.addEventListener(n, () => { cur = null; }));
+['touchstart','touchmove'].forEach(n => pad.addEventListener(n, e => e.preventDefault(), {passive:false}));
+
+$$('.levels .btn').forEach(b => b.addEventListener('click', () => {
+  state.trace.level = +b.dataset.level; state.trace.showRef = false;
+  strokes = []; resetFeedback(); syncLevels(); renderHead(); redraw();
+}));
+$('#tClear').addEventListener('click', () => { strokes = []; redraw(); });
+$('#tUndo').addEventListener('click', () => { strokes.pop(); redraw(); });
+$('#tPeek').addEventListener('click', () => { state.trace.showRef = !state.trace.showRef; renderHead(); redraw(); });
+$('#tSpeak').addEventListener('click', () => {
+  const w = curWord(), syl = w.match(/../g) || [w];
+  speak(syl.join('... ') + '... ' + w, 0.7, true);
+});
+function nextWord(){
+  if(state.trace.i < state.trace.words.length - 1){ state.trace.i++; loadWord(); }
+  else {
+    $('#traceMain').hidden = true; $('#traceDone').hidden = false; $('#traceCount').textContent = 'Siap!';
+    $('#traceDoneStars').textContent = '⭐ ' + state.trace.stars + ' bintang · ' + state.trace.right + ' / ' + state.trace.words.length + ' perkataan betul';
+    if(window.JT) JT.trace(state.trace.stars, state.trace.right, state.trace.words.length);
+    tone([[523,.12],[659,.12],[784,.12],[1047,.3]]);
+  }
+}
+function award(n){
+  state.trace.busy = true;
+  state.trace.stars += n; state.trace.right++; updateCount();
+  $('#traceMsg').textContent = '🌟 Tulisan cantik! Kamu dapat ' + n + ' bintang!';
+  $('#tSkip').hidden = true; $('#tOk3').hidden = true;
+  celebrate(n);
+  tone([[523,.12],[659,.12],[784,.12],[1047,.3]]);
+  setTimeout(() => speak(curWord(), 0.75), 500);
+  setTimeout(nextWord, 2200);
+}
+$('#tDone').addEventListener('click', () => {
+  if(state.trace.busy) return;
+  const msg = $('#traceMsg');
+  if(!strokes.length){ msg.textContent = '✏️ Tulis dahulu, kemudian tekan Siap.'; return; }
+  if(state.trace.level === 3){
+    msg.textContent = '👩‍🏫 Tunjukkan kepada cikgu. Cikgu semak huruf tidak terbalik, saiz sama dan duduk atas garisan.';
+    $('#tOk3').hidden = false; $('#tSkip').hidden = false;
+    return;
+  }
+  const r = evaluate();
+  if(r.ok){ award(r.stars); return; }
+  const t = {
+    banyak:'Terlalu banyak coretan. Tekan 🧽 Padam, kemudian cuba lagi ya.',
+    hampir:'Hampir betul! Tekan 🧽 Padam dan cuba lagi ya 💪'
+  };
+  msg.textContent = t[r.why] || t.hampir;
+  $('#tSkip').hidden = false;
+  tone([[392,.18],[330,.22]], 'sine', 0.08);
+});
+$('#tOk3').addEventListener('click', () => { if(!state.trace.busy) award(3); });
+$('#tSkip').addEventListener('click', () => { if(!state.trace.busy) nextWord(); });
+$('#tAgain').addEventListener('click', () => startTrace(state.trace.words));
+
+window.addEventListener('resize', () => { if(!$('#screen-trace').hidden && !$('#traceMain').hidden) sizePad(); });
+if(document.fonts){
+  const again = () => { if(!$('#screen-trace').hidden) redraw(); };
+  if(document.fonts.load) document.fonts.load('400 40px Andika').then(again, again);
+  if(document.fonts.ready) document.fonts.ready.then(again);
+}
+if('speechSynthesis' in window){ try{ window.speechSynthesis.getVoices(); }catch(e){} }
+
+})();
+</script>
+<script>
+(function(){
+  var n=document.getElementById('inName'), c=document.getElementById('inClass'), h=document.getElementById('hello');
+  function upd(){
+    var a=n.value.trim(), b=c.value.trim();
+    var t=[a,b].filter(Boolean).join(' · ');
+    h.textContent = a ? 'Hai, '+a+'! 🐝' : '';
+    Array.prototype.forEach.call(document.querySelectorAll('.who'), function(e){
+      e.textContent = t ? '🧒 '+t : ''; e.hidden = !t;
+    });
+  }
+  n.addEventListener('input',upd); c.addEventListener('input',upd); upd();
+})();
+</script>
+<script>
+(function(){
+  var $=function(q){return document.querySelector(q)};
+  var esc=function(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var LABELS=[['🔤','Pusingan 1'],['✏️','Pusingan 2'],['⭐','Pusingan 3']];
+  var rec={quiz:[null,null,null], trace:null};   /* hanya dalam memori, tidak disimpan */
+
+  function rows(){
+    var out=[];
+    LABELS.forEach(function(l,i){
+      var r=rec.quiz[i];
+      out.push({icon:l[0], name:'Kuiz '+l[1], pct:r?r.best/r.total:0, val:r?('⭐ '+r.best+' / '+r.total):'Belum main', none:!r, played:!!r});
+    });
+    var t=rec.trace;
+    out.push({icon:'✏️', name:'Jejak & Tulis', pct:t?t.right/t.total:0, val:t?('⭐ '+t.stars+' · '+t.right+'/'+t.total+' betul'):'Belum main', none:!t, played:!!t});
+    return out;
+  }
+  function stats(){
+    var q=0,qt=0,stars=0,pcts=[];
+    rec.quiz.forEach(function(r){ if(r){ q+=r.best; qt+=r.total; stars+=r.best; pcts.push(r.best/r.total);} });
+    if(rec.trace){ stars+=rec.trace.stars; pcts.push(rec.trace.right/rec.trace.total); }
+    var avg=pcts.length?pcts.reduce(function(a,b){return a+b},0)/pcts.length:null;
+    return {q:q,qt:qt,stars:stars,avg:avg,any:pcts.length>0};
+  }
+  function renderBoard(){
+    $('#boardRows').innerHTML=rows().map(function(r){
+      return '<div class="brow'+(r.none?' none':'')+'"><div class="bi">'+r.icon+'</div><div class="bt"><div class="bn">'+esc(r.name)+'</div><div class="bar"><i style="width:'+Math.round(r.pct*100)+'%"></i></div></div><div class="bv">'+esc(r.val)+'</div></div>';
+    }).join('');
+    var st=stats();
+    $('#boardTotal').innerHTML = st.any
+      ? ('Jumlah bintang: ⭐ '+st.stars+(st.qt?' &nbsp;·&nbsp; Markah kuiz: '+st.q+' / '+st.qt:''))
+      : 'Belum ada skor. Jom main! 🎮';
+  }
+  function addCertBtn(sel){
+    var box=$(sel); if(!box || box.querySelector('[data-cert-btn]')) return;
+    var b=document.createElement('button');
+    b.className='btn accent big'; b.setAttribute('data-go','cert'); b.setAttribute('data-cert-btn','1');
+    b.textContent='🏅 Lihat sijil saya';
+    box.insertBefore(b, box.lastElementChild);   /* sebelum butang Menu */
+  }
+  window.JT={
+    quiz:function(i,s,t){
+      var o=rec.quiz[i];
+      rec.quiz[i]={best:o?Math.max(o.best,s):s, last:s, total:t};
+      renderBoard(); addCertBtn('#resBtns');
+    },
+    trace:function(stars,right,total){
+      var o=rec.trace;
+      if(!o || stars>o.stars || (stars===o.stars && right>=o.right)) rec.trace={stars:stars,right:right,total:total};
+      renderBoard(); addCertBtn('#traceDone .stack');
+    }
+  };
+  renderBoard();
+
+  /* ----- Sijil ----- */
+  function renderCert(){
+    var st=stats();
+    $('#certNone').hidden=st.any; $('#certWrap').hidden=!st.any; $('#certActions').hidden=!st.any;
+    if(!st.any) return;
+    var name=$('#inName').value.trim(), kls=$('#inClass').value.trim();
+    var medal='🥉', mt='Pingat Gangsa', msg='Teruskan usaha, kamu boleh!';
+    if(st.avg>=0.9){medal='🥇'; mt='Pingat Emas'; msg='Hebat sekali!';}
+    else if(st.avg>=0.7){medal='🥈'; mt='Pingat Perak'; msg='Bagus! Sikit lagi!';}
+    var d=new Date(), tarikh;
+    try{ tarikh=d.toLocaleDateString('ms-MY',{day:'numeric',month:'long',year:'numeric'}); }catch(e){ tarikh=d.toLocaleDateString(); }
+    var bee=$('.bee-wrap svg').outerHTML.replace(/beeBody/g,'beeBodyCert');
+    var list=rows().filter(function(r){return r.played}).map(function(r){
+      return '<div class="crow"><span>'+r.icon+' '+esc(r.name)+'</span><span>'+esc(r.val)+'</span></div>';
+    }).join('');
+    $('#certBox').innerHTML=
+      '<span class="cc c1">⭐</span><span class="cc c2">🎈</span><span class="cc c3">🌈</span><span class="cc c4">✨</span>'+
+      bee+
+      '<h2 class="ct">SIJIL PENGHARGAAN</h2>'+
+      '<div class="cs">Jejak Tulis · Bahasa Melayu Tahun 2</div>'+
+      '<p class="cgive">Dengan bangganya dianugerahkan kepada</p>'+
+      '<div class="cname">'+(name?esc(name):'&nbsp;')+'</div>'+
+      (kls?'<div class="cclass">Kelas: '+esc(kls)+'</div>':'')+
+      '<div class="cmedal">'+medal+'</div>'+
+      '<div class="cmsg">'+mt+' — '+msg+'</div>'+
+      '<p class="cwhy">kerana telah berusaha mengenal huruf, mengeja dan menulis perkataan dengan gigih.</p>'+
+      '<div class="crows">'+list+'<div class="crow"><span>🌟 Jumlah bintang</span><span>⭐ '+st.stars+'</span></div></div>'+
+      '<div class="cfoot"><div class="dt">'+esc(tarikh)+'<small>Tarikh</small></div><div class="sig">Tandatangan guru</div></div>';
+  }
+  document.addEventListener('click',function(e){
+    if(e.target.closest('[data-go="cert"]')) renderCert();
+  });
+  $('#certPrint').addEventListener('click',function(){ window.print(); });
+
+  /* ----- Muzik (video YouTube, boleh buka/tutup) ----- */
+  var VID='nRtRlmoyfyw', START=722, VOL=40;
+  var player=null, ready=false, wantOn=false;
+  var btn=$('#mBtn'), dock=$('#mdock'), msgEl=$('#mmsg');
+  function setUI(on){
+    btn.setAttribute('aria-pressed', on?'true':'false');
+    btn.textContent = on ? '🎵 Muzik: HIDUP' : '🎵 Muzik: MATI';
+    dock.classList.toggle('open', on);
+    document.body.classList.toggle('music-on', on);
+  }
+  window.onYouTubeIframeAPIReady=function(){
+    try{
+      player=new YT.Player('ytplayer',{
+        videoId:VID, width:'100%', height:'100%',
+        playerVars:{start:START, playsinline:1, rel:0, modestbranding:1},
+        events:{
+          onReady:function(){ ready=true; try{player.setVolume(VOL);}catch(e){} if(wantOn){ try{player.playVideo();}catch(e){} } },
+          onStateChange:function(ev){
+            if(ev.data===1){ setUI(true); msgEl.hidden=true; }
+            else if(ev.data===2 || ev.data===0){ setUI(false); }
+          },
+          onError:function(){ setUI(false); wantOn=false; dock.classList.add('open'); $('#mvideo').style.display='none'; msgEl.hidden=false; }
+        }
+      });
+    }catch(e){ msgEl.hidden=false; }
+  };
+  var sc=document.createElement('script');
+  sc.src='https://www.youtube.com/iframe_api'; sc.async=true;
+  sc.onerror=function(){ msgEl.hidden=false; };
+  document.head.appendChild(sc);
+
+  btn.addEventListener('click',function(){
+    var on=btn.getAttribute('aria-pressed')==='true';
+    if(on){
+      wantOn=false; setUI(false);
+      try{ player && player.pauseVideo(); }catch(e){}
+    } else {
+      wantOn=true; setUI(true);
+      if(ready){ try{ player.setVolume(VOL); player.playVideo(); }catch(e){} }
+    }
+  });
+})();
+</script>
+</body>
+</html>
